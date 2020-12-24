@@ -28,21 +28,21 @@ namespace LimitlessTyres
         {
             connStr = @"Data Source = .\SQLEXPRESS; Initial Catalog = LimitlessTyres; Integrated Security = true";
 
-            //Set up simple dataset for tyre
+            //Set up simple dataset with no parameters for tyre
             sqlTyre = @"select * from Tyre";
             daTyre = new SqlDataAdapter(sqlTyre, connStr);
             cmdBTyre = new SqlCommandBuilder(daTyre);
             daTyre.FillSchema(dsLimitlessTyres, SchemaType.Source, "Tyre");
             daTyre.Fill(dsLimitlessTyres, "Tyre");
 
-            //Set up simple dataset for tyre type
+            //Set up simple dataset with no parameters for tyre type
             sqlTyreType = @"select * from TyreType";
             daTyreType = new SqlDataAdapter(sqlTyreType, connStr);
             cmdBTyreType = new SqlCommandBuilder(daTyreType);
             daTyreType.FillSchema(dsLimitlessTyres, SchemaType.Source, "TyreType");
             daTyreType.Fill(dsLimitlessTyres, "TyreType");
 
-            //Set up simple dataset for supplier
+            //Set up simple dataset with no parameters for supplier
             sqlSupplier = @"select * from Supplier";
             daSupplier = new SqlDataAdapter(sqlSupplier, connStr);
             cmdBSupplier = new SqlCommandBuilder(daSupplier);
@@ -55,22 +55,22 @@ namespace LimitlessTyres
             //Auto resize data grid view columns
             dgvTyre.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-            //Set datasource for tyre type combo box in add tab
+            //Fill tyre type combo box in add tab
             cmbAddTyreType.DataSource = dsLimitlessTyres.Tables["TyreType"];
             cmbAddTyreType.ValueMember = "TyreTypeCode";
             cmbAddTyreType.DisplayMember = "TyreTypeDesc";
 
-            //Set datasource for supplier combo box in add tab
+            //Fill supplier combo box in add tab
             cmbAddSupplier.DataSource = dsLimitlessTyres.Tables["Supplier"];
             cmbAddSupplier.ValueMember = "SupplierID";
             cmbAddSupplier.DisplayMember = "SupplierName";
 
-            //Set datasource for tyre type combo box in edit tab
+            //Fill tyre type combo box in edit tab
             cmbEditTyreType.DataSource = dsLimitlessTyres.Tables["TyreType"];
             cmbEditTyreType.ValueMember = "TyreTypeCode";
             cmbEditTyreType.DisplayMember = "TyreTypeDesc";
 
-            //Set datasource for supplier combo box in edit tab
+            //Fill supplier combo box in edit tab
             cmbEditSupplier.DataSource = dsLimitlessTyres.Tables["Supplier"];
             cmbEditSupplier.ValueMember = "SupplierID";
             cmbEditSupplier.DisplayMember = "SupplierName";
@@ -87,40 +87,37 @@ namespace LimitlessTyres
             switch (tbcTyre.SelectedIndex)
             {
                 case 0:
-                    {
-                        dsLimitlessTyres.Tables["Tyre"].Clear();
-                        daTyre.Fill(dsLimitlessTyres, "Tyre");
+                    dsLimitlessTyres.Tables["Tyre"].Clear();
+                    daTyre.Fill(dsLimitlessTyres, "Tyre");
 
-                        break;
-                    }
+                    break;
                 case 1:
-                    {
-                        errP.Clear();
-                        clearAddForm();
+                    errP.Clear();
+                    clearAddForm();
 
-                        break;
-                    }
+                    break;
                 case 2:
-                    {
-                        drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(tyreNoSelected);
 
-                        cmbEditWidth.Text = drTyre["TyreID"].ToString().Substring(0, 3);
-                        cmbEditProfile.Text = drTyre["TyreID"].ToString().Substring(4, 2);
-                        cmbEditDiameter.Text = drTyre["TyreID"].ToString().Substring(7, 2);
-                        cmbEditSpeed.Text = drTyre["TyreID"].ToString().Substring(10, 1);
+                    //Find selected tyre
+                    drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(tyreNoSelected);
 
-                        DataRow drTyreType = dsLimitlessTyres.Tables["TyreType"].Rows.Find(drTyre["TyreTypeCode"].ToString());
-                        cmbEditTyreType.Text = drTyreType["TyreTypeDesc"].ToString();
+                    //Fill in the details of the selected tyre
+                    cmbEditWidth.Text = drTyre["TyreID"].ToString().Substring(0, 3);
+                    cmbEditProfile.Text = drTyre["TyreID"].ToString().Substring(4, 2);
+                    cmbEditDiameter.Text = drTyre["TyreID"].ToString().Substring(7, 2);
+                    cmbEditSpeed.Text = drTyre["TyreID"].ToString().Substring(10, 1);
 
-                        DataRow drSupplier = dsLimitlessTyres.Tables["Supplier"].Rows.Find(drTyre["SupplierID"].ToString());
-                        cmbEditSupplier.Text = drSupplier["SupplierName"].ToString();
+                    DataRow drTyreType = dsLimitlessTyres.Tables["TyreType"].Rows.Find(drTyre["TyreTypeCode"].ToString());
+                    cmbEditTyreType.Text = drTyreType["TyreTypeDesc"].ToString();
 
-                        txtEditDesc.Text = drTyre["TyreDesc"].ToString();
-                        nudEditPrice.Text = drTyre["TyrePrice"].ToString();
-                        nudEditStock.Text = drTyre["QtyInStock"].ToString();
+                    DataRow drSupplier = dsLimitlessTyres.Tables["Supplier"].Rows.Find(drTyre["SupplierID"].ToString());
+                    cmbEditSupplier.Text = drSupplier["SupplierName"].ToString();
 
-                        break;
-                    }
+                    txtEditDesc.Text = drTyre["TyreDesc"].ToString();
+                    nudEditPrice.Text = drTyre["TyrePrice"].ToString();
+                    nudEditStock.Text = drTyre["QtyInStock"].ToString();
+
+                    break;
             }
         }
 
@@ -149,8 +146,7 @@ namespace LimitlessTyres
                 tyreNoSelected = Convert.ToString(dgvTyre.SelectedRows[0].Cells[0].Value);
         }
 
-        //Display tab
-        //Button panel
+        //Display tab button panel
         private void btnDisplayAdd_Click(object sender, EventArgs e)
         {
             tbcTyre.SelectedIndex = 1;
@@ -158,6 +154,7 @@ namespace LimitlessTyres
 
         private void btnDisplayEdit_Click(object sender, EventArgs e)
         {
+            //Check if a tyre has been selected
             if (dgvTyre.SelectedRows.Count == 0)
                 MessageBox.Show("Please select a tyre from the list.", "Select Tyre");
             else
@@ -166,6 +163,7 @@ namespace LimitlessTyres
 
         private void btnDisplayDelete_Click(object sender, EventArgs e)
         {
+            //Check if a tyre has been selected
             if (dgvTyre.SelectedRows.Count == 0)
                 MessageBox.Show("Please select a tyre from the list.", "Select Tyre");
             else
@@ -378,8 +376,7 @@ namespace LimitlessTyres
             pcbAddCancelLine.Visible = false;
         }
 
-        //Edit tab
-        //Button panel
+        //Edit tab button panel
         private void btnEditEdit_Click(object sender, EventArgs e)
         {
             if (btnEditEdit.Text == "Edit Tyre")

@@ -1251,7 +1251,7 @@ namespace LimitlessTyres
 
                 lstEditTyreType.SelectedIndex = -1;
 
-                //Enable and change text of add/edit cancel button
+                //Make visible and change text of add/edit cancel button
                 btnEditAddEditCancel.Visible = true;
                 btnEditAddEditCancel.Text = "Cancel Addition";
             }
@@ -1346,6 +1346,10 @@ namespace LimitlessTyres
                     //Enable buttons
                     btnEditDelete.Enabled = true;
                     btnEditEdit.Enabled = true;
+
+                    //Make add/edit cancel buttton and line invisible
+                    btnEditAddEditCancel.Visible = false;
+                    pcbEditAddEditCancelLine.Visible = false;
                 }
             }
         }
@@ -1534,6 +1538,10 @@ namespace LimitlessTyres
 
                     //Disable panel
                     pnlEditTyre1.Enabled = false;
+
+                    //Make add/edit cancel buttton and line invisible
+                    btnEditAddEditCancel.Visible = false;
+                    pcbEditAddEditCancelLine.Visible = false;
                 }
             }
             else
