@@ -105,7 +105,7 @@ namespace LimitlessTyres
             daOrderDet.FillSchema(dsLimitlessTyres, SchemaType.Source, "OrderDet");
             daOrderDet.Fill(dsLimitlessTyres, "OrderDet");
 
-            fillListBoxDisplayOrder();
+            FillListBoxDisplayOrder();
         }
 
         private void tbcOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,146 +113,16 @@ namespace LimitlessTyres
             switch (tbcOrder.SelectedIndex)
             {
                 case 0:
-                    ClearDisplayOrderDetails();
-
-                    //Clear and disable listview
-                    lvwDisplayTyre.Items.Clear();
-                    lvwDisplayTyre.Enabled = false;
-
-                    //Remove order selection
-                    lstDisplayOrder.SelectedIndex = -1;
-
+                    ClearDisplayTab();
                     break;
                 case 1:
-                    ClearAddCustDetails();
-                    ClearAddTyreDetails();
-
-                    //Empty dataset tables customer, tyre type
-                    dsLimitlessTyres.Tables["CustomerPar"].Clear();
-                    dsLimitlessTyres.Tables["TyreType"].Clear();
-
-                    //Clear tyre listbox
-                    lstEditTyre.Items.Clear();
-
-                    //Clear and disable numericUpDown
-                    nudAddQty.Value = 0;
-                    nudAddQty.Enabled = false;
-
-                    //Clear and disable listview
-                    lvwAddTyre.Items.Clear();
-                    lvwAddTyre.Enabled = false;
-
-                    //Clear order discount and cost
-                    lblAddDiscount.Text = "";
-                    lblAddCost.Text = "";
-
-                    //Disable add panel
-                    pnlAddTyre1.Enabled = false;
-
-                    //Set text for alphabet buttons
-                    for (int i = 0; i < 26; i++)
-                    {
-                        btns[i] = (Button)pnlAddLetterBtns.Controls[i];
-                        btns[i].Text = "" + (char)(65 + i);
-                        btns[i].Enabled = false;
-                        btns[i].Click += new EventHandler(btnAddA_Click);
-                    }
-
-                    //Get surnames for alphabet buttons
-                    sqlNames = @"SELECT CustomerSurname FROM customer ORDER BY CustomerSurname";
-                    daNames = new SqlDataAdapter(sqlNames, connStr);
-                    daNames.Fill(dsLimitlessTyres, "Names");
-
-                    //Enable relevant alpha buttons
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["Names"].Rows)
-                    {
-                        int no = (int)dr["CustomerSurname"].ToString()[0] - 65;
-                        btns[no].Enabled = true;
-                        btns[no].BackColor = Color.White;
-                    }
-
-                    //Set order ID and date
-                    int noRows = dsLimitlessTyres.Tables["Order"].Rows.Count;
-
-                    if (noRows == 0)
-                    {
-                        lblAddOrderID.Text = "Order ID:  1000";
-                    }
-                    else
-                    {
-                        drOrder = dsLimitlessTyres.Tables["Order"].Rows[noRows - 1];
-                        lblAddOrderID.Text = "Order ID: " + (int.Parse(drOrder["OrderID"].ToString()) + 1).ToString();
-                    }
-
-                    lblAddOrderDate.Text = "Order Date:  " + DateTime.Now.ToShortDateString();
-
+                    ClearAddTab();
+                    SetAddAlphabetButtons();
+                    SetAddOrderDateID();
                     break;
                 case 2:
-                    ClearEditCustDetails();
-
-                    //Empty dataset tables customer, order, tyre type, tyre
-                    dsLimitlessTyres.Tables["CustomerPar"].Clear();
-                    dsLimitlessTyres.Tables["OrderPar"].Clear();
-                    dsLimitlessTyres.Tables["TyrePar"].Clear();
-                    dsLimitlessTyres.Tables["TyreType"].Clear();
-
-                    //Clear tyre type, tyre listbox
-                    if (lstEditTyreType.Items.Count == 1)
-                        lstEditTyreType.Items.Clear();
-                    lstEditTyre.Items.Clear();
-
-                    //Change add/edit qty button text
-                    btnEditAdd.Text = "Add Tyre";
-                    btnEditEdit.Text = "Edit Tyre Qty";
-
-                    //Clear and disable numericUpDown
-                    nudEditQty.Value = 0;
-                    nudEditQty.Enabled = false;
-
-                    //Clear and disable listview
-                    lvwEditTyre.Items.Clear();
-                    lvwEditTyre.Enabled = false;
-
-                    //Clear order ID, date, discount and cost
-                    lblEditOrder0.Text = "";
-                    lblEditOrder1.Text = "";
-                    lblEditDiscount.Text = "";
-                    lblEditCost.Text = "";
-
-                    //Disable panels
-                    pnlEditOrder1.Enabled = false;
-                    pnlEditTyre1.Enabled = false;
-
-                    //Hide add/edit qty cancel button
-                    btnEditAddEditCancel.Visible = false;
-
-                    //Enable buttons
-                    btnEditAdd.Enabled = true;
-                    btnEditDelete.Enabled = true;
-                    btnEditEdit.Enabled = true;
-
-                    //Set text for alphabet buttons
-                    for (int i = 0; i < 26; i++)
-                    {
-                        btns[i] = (Button)pnlEditLetterBtns.Controls[i];
-                        btns[i].Text = "" + (char)(65 + i);
-                        btns[i].Enabled = false;
-                        btns[i].Click += new EventHandler(btnEditA_Click);
-                    }
-
-                    //Get surnames for alphabet buttons
-                    sqlNames = @"SELECT CustomerSurname FROM customer ORDER BY CustomerSurname";
-                    daNames = new SqlDataAdapter(sqlNames, connStr);
-                    daNames.Fill(dsLimitlessTyres, "Names");
-
-                    //Enable relevant alpha buttons
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["Names"].Rows)
-                    {
-                        int no = (int)dr["CustomerSurname"].ToString()[0] - 65;
-                        btns[no].Enabled = true;
-                        btns[no].BackColor = Color.White;
-                    }
-
+                    ClearEditTab();
+                    SetEditAlphabetButtons();
                     break;
             }
         }
@@ -263,79 +133,14 @@ namespace LimitlessTyres
             //Check if an order is selected
             if (lstDisplayOrder.SelectedIndex != -1)
             {
-                //Find selected order
-                drOrder = dsLimitlessTyres.Tables["Order"].Rows.Find(lstDisplayOrder.SelectedValue);
-
-                //Display order details
-                lblDisplayOrder0.Text = "Order ID: " + drOrder["OrderID"].ToString();
-                lblDisplayOrder1.Text = "Order Date: " + drOrder["OrderDate"].ToString().Substring(0, 10);
-
-                drCustomer = dsLimitlessTyres.Tables["Customer"].Rows.Find(drOrder["CustomerID"]);
-
-                lblDisplayOrder2.Text = "Customer Name: " + drCustomer["CustomerForename"].ToString() + " " + drCustomer["CustomerSurname"].ToString();
-                switch (drCustomer["CustomerTypeID"].ToString())
-                {
-                    case "T":
-                        lblDisplayOrder3.Text = "Customer Type: Trade";
-                        break;
-                    case "G":
-                        lblDisplayOrder3.Text = "Customer Type: General";
-                        break;
-                }
-
-                lblDisplayOrder4.Text = "Contact No: " + drCustomer["CustomerContactNo"];
-                lblDisplayOrder5.Text = "Address: " + drCustomer["CustomerStreet"].ToString() + ", " + drCustomer["CustomerTown"].ToString() + ", \nCo. " + drCustomer["CustomerCounty"].ToString() + ", " + drCustomer["CustomerPostcode"].ToString();
-                lblDisplayOrder6.Text = "Company Name: " + drCustomer["CompanyName"];
-
-                //Clear listview
-                lvwDisplayTyre.Items.Clear();
-
-                //Add order details to listview
-                foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
-                {
-                    if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
-                    {
-                        foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
-                        {
-                            if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
-                            {
-                                ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
-                                item.SubItems.Add(dr2["TyreDesc"].ToString());
-                                item.SubItems.Add(dr2["TyrePrice"].ToString());
-
-                                item.SubItems.Add(dr["Quantity"].ToString());
-                                item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
-                                lvwDisplayTyre.Items.Add(item);
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                //Calculate and display order discount and order cost
-                double cost = 0;
-
-                foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                {
-                    if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                    {
-                        foreach (ListViewItem item in lvwDisplayTyre.Items)
-                        {
-                            cost += Convert.ToDouble(item.SubItems[4].Text);
-                        }
-
-                        lblDisplayOrder7.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                        lblDisplayOrder8.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                    }
-                }
-
-                //Autoresize listview
-                lvwDisplayTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwDisplayTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                DisplayOrderDetails();
+                FillListViewDisplayOrder();
+                CalcDisplayOrderDiscountCost();
+                AutoResizeDisplayListViewCol();
             }
         }
 
-        private void fillListBoxDisplayOrder()
+        private void FillListBoxDisplayOrder()
         {
             lstDisplayOrder.DataSource = dsLimitlessTyres.Tables["Order"];
             lstDisplayOrder.DisplayMember = "OrderID";
@@ -344,8 +149,9 @@ namespace LimitlessTyres
             lstDisplayOrder.SelectedIndex = -1;
         }
 
-        private void ClearDisplayOrderDetails()
+        private void ClearDisplayTab()
         {
+            //Clear order details
             lblDisplayOrder0.Text = "";
             lblDisplayOrder1.Text = "";
             lblDisplayOrder2.Text = "";
@@ -355,6 +161,93 @@ namespace LimitlessTyres
             lblDisplayOrder6.Text = "";
             lblDisplayOrder7.Text = "";
             lblDisplayOrder8.Text = "";
+
+            //Clear listview
+            lvwDisplayTyre.Items.Clear();
+
+            //Remove order selection
+            lstDisplayOrder.SelectedIndex = -1;
+        }
+
+        private void CalcDisplayOrderDiscountCost()
+        {
+            double cost = 0;
+
+            foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
+            {
+                if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
+                {
+                    foreach (ListViewItem item in lvwDisplayTyre.Items)
+                    {
+                        cost += Convert.ToDouble(item.SubItems[4].Text);
+                    }
+
+                    lblDisplayOrder7.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
+                    lblDisplayOrder8.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
+                }
+            }
+        }
+
+        private void AutoResizeDisplayListViewCol()
+        {
+            lvwDisplayTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwDisplayTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void DisplayOrderDetails()
+        {
+            //Find selected order and assoicated customer
+            drOrder = dsLimitlessTyres.Tables["Order"].Rows.Find(lstDisplayOrder.SelectedValue);
+            drCustomer = dsLimitlessTyres.Tables["Customer"].Rows.Find(drOrder["CustomerID"]);
+
+            //Display order details
+            lblDisplayOrder0.Text = "Order ID: " + drOrder["OrderID"].ToString();
+            lblDisplayOrder1.Text = "Order Date: " + drOrder["OrderDate"].ToString().Substring(0, 10);
+            lblDisplayOrder2.Text = "Customer Name: " + drCustomer["CustomerForename"].ToString() + " " + drCustomer["CustomerSurname"].ToString();
+
+            switch (drCustomer["CustomerTypeID"].ToString())
+            {
+                case "T":
+                    lblDisplayOrder3.Text = "Customer Type: Trade";
+                    break;
+                case "G":
+                    lblDisplayOrder3.Text = "Customer Type: General";
+                    break;
+            }
+
+            lblDisplayOrder4.Text = "Contact No: " + drCustomer["CustomerContactNo"];
+            lblDisplayOrder5.Text = "Address: " + drCustomer["CustomerStreet"].ToString() + ", " + drCustomer["CustomerTown"].ToString() + ", \nCo. " + drCustomer["CustomerCounty"].ToString() + ", " + drCustomer["CustomerPostcode"].ToString();
+            lblDisplayOrder6.Text = "Company Name: " + drCustomer["CompanyName"];
+        }
+
+        private void FillListViewDisplayOrder()
+        {
+            //Clear listview
+            lvwDisplayTyre.Items.Clear();
+
+            //Add tyres in order to listview
+            foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
+            {
+                if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
+                {
+                    foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
+                    {
+                        if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
+                        {
+                            ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
+
+                            item.SubItems.Add(dr2["TyreDesc"].ToString());
+                            item.SubItems.Add(dr2["TyrePrice"].ToString());
+                            item.SubItems.Add(dr["Quantity"].ToString());
+                            item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
+
+                            lvwDisplayTyre.Items.Add(item);
+
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         //Button panel
@@ -377,25 +270,36 @@ namespace LimitlessTyres
                 {
                     object[] primaryKey = new object[2];
 
-                    //Delete all related order detail rows
+                    //Find and delete all related order detail rows from order detail table
                     foreach (ListViewItem item in lvwDisplayTyre.Items)
                     {
+                        //Find order detail row by primary key
                         primaryKey[0] = Convert.ToInt32(lstDisplayOrder.Text);
                         primaryKey[1] = item.SubItems[0].Text;
 
                         drOrderDet = dsLimitlessTyres.Tables["OrderDet"].Rows.Find(primaryKey);
 
+                        //Remove tyre from listview
                         lvwDisplayTyre.Items.Remove(item);
 
+                        //Delete row from order detail table
                         drOrderDet.Delete();
                         daOrderDet.Update(dsLimitlessTyres, "OrderDet");
+
+                        //Update tyre stock
+                        drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(item.SubItems[0].Text);
+
+                        drTyre["QtyInStock"] = Convert.ToInt32(drTyre["QtyInStock"]) + Convert.ToInt32(item.SubItems[3].Text);
+                        daTyre.Update(dsLimitlessTyres, "Tyre");
                     }
 
-                    //Delete order 
+                    //Find and delete order from order table
                     if (lvwDisplayTyre.Items.Count == 0)
                     {
+                        //Find order
                         drOrder = dsLimitlessTyres.Tables["Order"].Rows.Find(primaryKey[0]);
 
+                        //Delete row from order table
                         drOrder.Delete();
                         daOrder.Update(dsLimitlessTyres, "Order");
                     }
@@ -439,34 +343,13 @@ namespace LimitlessTyres
         //Add tab
         private void btnAddA_Click(object sender, EventArgs e)
         {
-            ClearAddCustDetails();
-            ClearAddTyreDetails();
-
-            //Empty dataset tables customer, tyre type, tyre
-            dsLimitlessTyres.Tables["CustomerPar"].Clear();
-            dsLimitlessTyres.Tables["TyreType"].Clear();
-            dsLimitlessTyres.Tables["TyrePar"].Clear();
-
-            //Clear and disable numericUpDown
-            nudAddQty.Value = 0;
-            nudAddQty.Enabled = false;
-
-            //Clear and disable listview
-            lvwAddTyre.Items.Clear();
-            lvwAddTyre.Enabled = false;
-
-            //Clear order discount and cost
-            lblAddDiscount.Text = "";
-            lblAddCost.Text = "";
-
-            //Disable panels
-            pnlAddTyre1.Enabled = false;
+            ClearAddTab();
 
             //Get surname letter for customer listbox
             Button b = (Button)sender;
             String str = b.Text;
 
-            fillListBoxAddCust(str);
+            FillListBoxAddCust(str);
         }
 
         private void lstAddCust_Click(object sender, EventArgs e)
@@ -476,7 +359,7 @@ namespace LimitlessTyres
             {
                 ClearAddTyreDetails();
 
-                //empty dataset tables tyre type, tyre
+                //Empty dataset tables tyre type, tyre
                 dsLimitlessTyres.Tables["TyreType"].Clear();
                 dsLimitlessTyres.Tables["TyrePar"].Clear();
 
@@ -484,22 +367,14 @@ namespace LimitlessTyres
                 nudAddQty.Value = 0;
                 nudAddQty.Enabled = false;
 
-                //Clear and disable listview
+                //Clear listview
                 lvwAddTyre.Items.Clear();
-                lvwAddTyre.Enabled = false;
 
                 //Clear order discount and cost
                 lblAddDiscount.Text = "";
                 lblAddCost.Text = "";
 
-                //Fill tyre type listbox
-                daTyreType.Fill(dsLimitlessTyres, "TyreType");
-
-                lstAddTyreType.DataSource = dsLimitlessTyres.Tables["TyreType"];
-                lstAddTyreType.DisplayMember = "TyreTypeDesc";
-                lstAddTyreType.ValueMember = "TyreTypeCode";
-
-                lstAddTyreType.SelectedIndex = -1;
+                FillListBoxAddTyreType();
 
                 //Display customer details
                 drCustomer = dsLimitlessTyres.Tables["CustomerPar"].Rows.Find(lstAddCust.SelectedValue);
@@ -520,6 +395,7 @@ namespace LimitlessTyres
                 lblAddCust4.Text = "Address: " + drCustomer["CustomerStreet"].ToString() + ", " + drCustomer["CustomerTown"].ToString() + ", \nCo. " + drCustomer["CustomerCounty"].ToString() + ", " + drCustomer["CustomerPostcode"].ToString();
                 lblAddCust5.Text = "Company Name: " + drCustomer["CompanyName"].ToString();
 
+                //Enable add tyre panel
                 pnlAddTyre1.Enabled = true;
             }
         }
@@ -542,17 +418,7 @@ namespace LimitlessTyres
                 lblAddDiscount.Text = "";
                 lblAddCost.Text = "";
 
-                //Get tyres that match tyre type
-                cmdTyrePar.Parameters["@TyreTypeCode"].Value = lstAddTyreType.SelectedValue;
-
-                //Fill tyre listbox
-                daTyrePar.Fill(dsLimitlessTyres, "TyrePar");
-
-                lstAddTyre.DataSource = dsLimitlessTyres.Tables["TyrePar"];
-                lstAddTyre.DisplayMember = "TyreID";
-                lstAddTyre.ValueMember = "TyreID";
-
-                lstAddTyre.SelectedIndex = -1;
+                FillListBoxAddTyre();
             }
         }
 
@@ -579,31 +445,10 @@ namespace LimitlessTyres
 
         private void rdoAddTradeGeneral_CheckedChanged(object sender, EventArgs e)
         {
-            ClearAddCustDetails();
-            ClearAddTyreDetails();
-
-            //Empty dataset tables customer, tyre type, tyre
-            dsLimitlessTyres.Tables["CustomerPar"].Clear();
-            dsLimitlessTyres.Tables["TyrePar"].Clear();
-            dsLimitlessTyres.Tables["TyreType"].Clear();
-
-            //Clear and disable numericUpDown
-            nudAddQty.Value = 0;
-            nudAddQty.Enabled = false;
-
-            //Clear and disable listview
-            lvwAddTyre.Items.Clear();
-            lvwAddTyre.Enabled = false;
-
-            //Clear order discount and cost
-            lblAddDiscount.Text = "";
-            lblAddCost.Text = "";
-
-            //Disable panel
-            pnlAddTyre1.Enabled = false;
+            ClearAddTab();
         }
 
-        private void fillListBoxAddCust(String str)
+        private void FillListBoxAddCust(String str)
         {
             //Check if trade or general customer selected
             if (rdoAddTrade.Checked)
@@ -612,9 +457,10 @@ namespace LimitlessTyres
                 cmdCustomerPar.Parameters["@CustomerTypeID"].Value = "G";
 
             cmdCustomerPar.Parameters["@Letter"].Value = str + "%";
+
             daCustomerPar.Fill(dsLimitlessTyres, "CustomerPar");
 
-            //Fill customer listbox
+            //Fill listbox
             lstAddCust.DataSource = dsLimitlessTyres.Tables["CustomerPar"];
             lstAddCust.DisplayMember = "Name";
             lstAddCust.ValueMember = "CustomerID";
@@ -642,6 +488,119 @@ namespace LimitlessTyres
             lblAddTyre5.Text = "";
         }
 
+        private void ClearAddTab()
+        {
+            ClearAddCustDetails();
+            ClearAddTyreDetails();
+
+            //Empty dataset tables customer, tyre type, tyre
+            dsLimitlessTyres.Tables["CustomerPar"].Clear();
+            dsLimitlessTyres.Tables["TyrePar"].Clear();
+            dsLimitlessTyres.Tables["TyreType"].Clear();
+
+            //Clear and disable numericUpDown
+            nudAddQty.Value = 0;
+            nudAddQty.Enabled = false;
+
+            //Clear listview
+            lvwAddTyre.Items.Clear();
+
+            //Clear order discount and cost
+            lblAddDiscount.Text = "";
+            lblAddCost.Text = "";
+
+            //Disable add panel
+            pnlAddTyre1.Enabled = false;
+        }
+
+        private void SetAddOrderDateID()
+        {
+            int noRows = dsLimitlessTyres.Tables["Order"].Rows.Count;
+
+            if (noRows == 0)
+                lblAddOrderID.Text = "Order ID:  1000";
+            else
+            {
+                drOrder = dsLimitlessTyres.Tables["Order"].Rows[noRows - 1];
+                lblAddOrderID.Text = "Order ID: " + (int.Parse(drOrder["OrderID"].ToString()) + 1).ToString();
+            }
+
+            lblAddOrderDate.Text = "Order Date:  " + DateTime.Now.ToShortDateString();
+        }
+
+        private void FillListBoxAddTyreType()
+        {
+            daTyreType.Fill(dsLimitlessTyres, "TyreType");
+
+            lstAddTyreType.DataSource = dsLimitlessTyres.Tables["TyreType"];
+            lstAddTyreType.DisplayMember = "TyreTypeDesc";
+            lstAddTyreType.ValueMember = "TyreTypeCode";
+
+            lstAddTyreType.SelectedIndex = -1;
+        }
+
+        private void FillListBoxAddTyre()
+        {
+            cmdTyrePar.Parameters["@TyreTypeCode"].Value = lstAddTyreType.SelectedValue;
+
+            daTyrePar.Fill(dsLimitlessTyres, "TyrePar");
+
+            lstAddTyre.DataSource = dsLimitlessTyres.Tables["TyrePar"];
+            lstAddTyre.DisplayMember = "TyreID";
+            lstAddTyre.ValueMember = "TyreID";
+
+            lstAddTyre.SelectedIndex = -1;
+        }
+
+        private void CalcAddOrderDiscountCost()
+        {
+            double cost = 0;
+            foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
+            {
+                if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
+                {
+                    foreach (ListViewItem item in lvwAddTyre.Items)
+                    {
+                        cost += Convert.ToDouble(item.SubItems[4].Text);
+                    }
+
+                    lblAddDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
+                    lblAddCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
+                }
+            }
+        }
+
+        private void AutoResizeAddListView()
+        {
+            lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void SetAddAlphabetButtons()
+        {
+            //Set text for alphabet buttons
+            for (int i = 0; i < 26; i++)
+            {
+                btns[i] = (Button)pnlAddLetterBtns.Controls[i];
+                btns[i].Text = "" + (char)(65 + i);
+                btns[i].Enabled = false;
+                btns[i].Click += new EventHandler(btnAddA_Click);
+            }
+
+            //Get surnames for alphabet buttons
+            sqlNames = @"SELECT CustomerSurname FROM customer ORDER BY CustomerSurname";
+            daNames = new SqlDataAdapter(sqlNames, connStr);
+            daNames.Fill(dsLimitlessTyres, "Names");
+
+            //Enable relevant alphabet buttons
+            foreach (DataRow dr in dsLimitlessTyres.Tables["Names"].Rows)
+            {
+                int no = (int)dr["CustomerSurname"].ToString()[0] - 65;
+                btns[no].Enabled = true;
+                btns[no].BackColor = Color.White;
+            }
+        }
+
         //Button panel
         private void btnAddAdd_Click(object sender, EventArgs e)
         {
@@ -649,82 +608,78 @@ namespace LimitlessTyres
 
             //Checks if customer, tyre type, tyre, and quantity selected
             if (lstAddCust.SelectedIndex == -1)
-                MessageBox.Show("Please select a customer", "Customer");
+                MessageBox.Show("Please select a customer.", "Add Tyre");
             else if (lstAddTyreType.SelectedIndex == -1)
-                MessageBox.Show("Please select a tyre type", "Tyre Type");
+                MessageBox.Show("Please select a tyre type.", "Add Tyre");
             else if (lstAddTyre.SelectedIndex == -1)
-                MessageBox.Show("Please select a tyre", "TyrePar");
+                MessageBox.Show("Please select a tyre.", "Add Tyre");
             else if (nudAddQty.Text == "0")
             {
-                MessageBox.Show("Please enter a quantity", "Quantity");
+                MessageBox.Show("Please enter a quantity.", "Add Tyre");
                 nudAddQty.Focus();
             }
             else
             {
-                //Check if tyre has already been added to this order
-                foreach (ListViewItem item in lvwAddTyre.Items)
+                //Check if tyre has stock
+                bool stock = false;
+
+                DataRow drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(lstAddTyre.SelectedValue);
+
+                if (Convert.ToInt32(drTyre["QtyInStock"]) > nudAddQty.Value)
+                    stock = true;
+
+                if (!stock)
                 {
-                    if (item.SubItems[0].Text == lstAddTyre.SelectedValue.ToString())
-                    {
-                        MessageBox.Show("Tyre has already been Selected for this order", "Order");
-                        exits = true;
-                        break;
-                    }
+                    MessageBox.Show("Sorry. There is not enough stock of this tyre.", "Add Tyre");
                 }
-
-                if (!exits)
+                else
                 {
-                    //Enable listview
-                    lvwAddTyre.Enabled = true;
-
-                    //Add tyre to listview
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["TyrePar"].Rows)
+                    //Check if tyre has already been added to this order
+                    foreach (ListViewItem item in lvwAddTyre.Items)
                     {
-                        if (dr["TyreID"].ToString() == lstAddTyre.Text)
+                        if (item.SubItems[0].Text == lstAddTyre.SelectedValue.ToString())
                         {
-                            ListViewItem item = new ListViewItem(dr["TyreID"].ToString());
-                            item.SubItems.Add(dr["TyreDesc"].ToString());
-                            item.SubItems.Add(dr["TyrePrice"].ToString());
-
-                            item.SubItems.Add(nudAddQty.Text);
-                            item.SubItems.Add((nudAddQty.Value * Convert.ToDecimal(dr["TyrePrice"])).ToString());
-                            lvwAddTyre.Items.Add(item);
+                            MessageBox.Show("Sorry. This ttyre has already been added to this order.", "Add Tyre");
+                            exits = true;
                             break;
                         }
                     }
 
-                    //Calcuate and display discount and order cost
-                    double cost = 0;
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
+                    if (!exits)
                     {
-                        if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
+                        //Add tyre to listview
+                        foreach (DataRow dr in dsLimitlessTyres.Tables["TyrePar"].Rows)
                         {
-                            foreach (ListViewItem item in lvwAddTyre.Items)
+                            if (dr["TyreID"].ToString() == lstAddTyre.Text)
                             {
-                                cost += Convert.ToDouble(item.SubItems[4].Text);
+                                ListViewItem item = new ListViewItem(dr["TyreID"].ToString());
+                                item.SubItems.Add(dr["TyreDesc"].ToString());
+                                item.SubItems.Add(dr["TyrePrice"].ToString());
+
+                                item.SubItems.Add(nudAddQty.Text);
+                                item.SubItems.Add((nudAddQty.Value * Convert.ToDecimal(dr["TyrePrice"])).ToString());
+                                lvwAddTyre.Items.Add(item);
+                                break;
                             }
-
-                            lblAddDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                            lblAddCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
                         }
+
+                        CalcAddOrderDiscountCost();
                     }
+
+                    ClearAddTyreDetails();
+
+                    //Empty dataset table tyre
+                    dsLimitlessTyres.Tables["TyrePar"].Clear();
+
+                    //Clear and disable numericUpDown
+                    nudAddQty.Value = 0;
+                    nudAddQty.Enabled = false;
+
+                    //Remove tyre type selection
+                    lstAddTyreType.SelectedIndex = -1;
+
+                    AutoResizeAddListView();
                 }
-
-                ClearAddTyreDetails();
-
-                //Empty dataset table tyre
-                dsLimitlessTyres.Tables["TyrePar"].Clear();
-
-                //Clear and disable numericUpDown
-                nudAddQty.Value = 0;
-                nudAddQty.Enabled = false;
-
-                //Remove tyre type selection
-                lstAddTyreType.SelectedIndex = -1;
-
-                //Auto resize listview columns
-                lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
@@ -737,26 +692,8 @@ namespace LimitlessTyres
                 var itemDel = lvwAddTyre.SelectedItems[0];
                 lvwAddTyre.Items.Remove(itemDel);
 
-                //Calculate and display discount and order cost
-                double cost = 0;
-
-                foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                {
-                    if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                    {
-                        foreach (ListViewItem item in lvwAddTyre.Items)
-                        {
-                            cost += Convert.ToDouble(item.SubItems[4].Text);
-                        }
-
-                        lblAddDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                        lblAddCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                    }
-                }
-
-                //Auto resize listview columns
-                lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwAddTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                CalcAddOrderDiscountCost();
+                AutoResizeAddListView();
             }
             else
                 MessageBox.Show("Please select the tyre that you wish to remove from the order.", "Remove Tyre");
@@ -791,34 +728,20 @@ namespace LimitlessTyres
                     drOrderDet["Quantity"] = int.Parse(item.SubItems[3].Text);
                     dsLimitlessTyres.Tables["OrderDet"].Rows.Add(drOrderDet);
                     daOrderDet.Update(dsLimitlessTyres, "OrderDet");
+
+                    //Update tyre stock
+                    drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(item.SubItems[0].Text);
+
+                    drTyre["QtyInStock"] = Convert.ToInt32(drTyre["QtyInStock"]) - Convert.ToInt32(item.SubItems[3].Text);
+                    daTyre.Update(dsLimitlessTyres, "Tyre");
                 }
 
-                ClearAddCustDetails();
-                ClearAddTyreDetails();
+                ClearAddTab();
 
-                //Empty dataset tables customer, tyre type, tyre
-                dsLimitlessTyres.Tables["CustomerPar"].Clear();
-                dsLimitlessTyres.Tables["TyrePar"].Clear();
-                dsLimitlessTyres.Tables["TyreType"].Clear();
-
-                //Clear and disable numericUpDown
-                nudAddQty.Value = 0;
-                nudAddQty.Enabled = false;
-
-                //Clear and disable listview
-                lvwAddTyre.Items.Clear();
-                lvwAddTyre.Enabled = false;
-
-                //Clear order discount and cost
-                lblAddDiscount.Text = "";
-                lblAddCost.Text = "";
-
-                //Disable panel
-                pnlAddTyre1.Enabled = false;
-
-                //Ask if user wants to add another order
                 if (!(MessageBox.Show("Order ID: " + drOrder["OrderID"].ToString() + " added. Do you want to add another Order?", "Add Order", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes))
                     tbcOrder.SelectedIndex = 0;
+                else
+                    SetAddOrderDateID();
             }
         }
 
@@ -872,47 +795,7 @@ namespace LimitlessTyres
         //Edit tab
         private void btnEditA_Click(object sender, EventArgs e)
         {
-            ClearEditCustDetails();
-
-            //Empty dataset tables customer, order, tyre type, tyre
-            dsLimitlessTyres.Tables["CustomerPar"].Clear();
-            dsLimitlessTyres.Tables["OrderPar"].Clear();
-            dsLimitlessTyres.Tables["TyreType"].Clear();
-
-            //Clear tyre type, tyre listbox
-            if (lstEditTyreType.Items.Count == 1)
-                lstEditTyreType.Items.Clear();
-            lstEditTyre.Items.Clear();
-
-            //Change button text
-            btnEditAdd.Text = "Add Tyre";
-            btnEditEdit.Text = "Edit Tyre Qty";
-
-            //Clear and disable numericUpDown
-            nudEditQty.Value = 0;
-            nudEditQty.Enabled = false;
-
-            //Clear and disable listview
-            lvwEditTyre.Items.Clear();
-            lvwEditTyre.Enabled = false;
-
-            //Clear order ID, date, discount and cost
-            lblEditOrder0.Text = "";
-            lblEditOrder1.Text = "";
-            lblEditDiscount.Text = "";
-            lblEditCost.Text = "";
-
-            //Disable panels
-            pnlEditOrder1.Enabled = false;
-            pnlEditTyre1.Enabled = false;
-
-            //Enable buttons
-            btnEditAdd.Enabled = true;
-            btnEditDelete.Enabled = true;
-            btnEditEdit.Enabled = true;
-
-            //Hide add/edit cancel button
-            btnEditAddEditCancel.Visible = false;
+            ClearEditTab();
 
             //Get surname letter for customer listbox
             Button b = (Button)sender;
@@ -926,7 +809,7 @@ namespace LimitlessTyres
             //Check if a customer is selected
             if (lstEditCust.SelectedIndex != -1)
             {
-                //Empty dataset tables customer, order, tyre type, tyre
+                //Empty dataset tables order, tyre type
                 dsLimitlessTyres.Tables["OrderPar"].Clear();
                 dsLimitlessTyres.Tables["TyreType"].Clear();
 
@@ -943,9 +826,8 @@ namespace LimitlessTyres
                 nudEditQty.Value = 0;
                 nudEditQty.Enabled = false;
 
-                //Clear and disable listview
+                //Clear listview
                 lvwEditTyre.Items.Clear();
-                lvwEditTyre.Enabled = false;
 
                 //Clear order ID, date, discount and cost
                 lblEditOrder0.Text = "";
@@ -953,7 +835,7 @@ namespace LimitlessTyres
                 lblEditDiscount.Text = "";
                 lblEditCost.Text = "";
 
-                //Disable panels
+                //Disable edit tyre panel
                 pnlEditTyre1.Enabled = false;
 
                 //Enable buttons
@@ -983,6 +865,7 @@ namespace LimitlessTyres
                 lblEditCust4.Text = "Address: " + drCustomer["CustomerStreet"].ToString() + ", " + drCustomer["CustomerTown"].ToString() + ", \nCo. " + drCustomer["CustomerCounty"].ToString() + ", " + drCustomer["CustomerPostcode"].ToString();
                 lblEditCust5.Text = "Company Name: " + drCustomer["CompanyName"].ToString();
 
+                //Enable edit order panel
                 pnlEditOrder1.Enabled = true;
 
                 FillListboxEditOrder();
@@ -994,7 +877,7 @@ namespace LimitlessTyres
             //Check if a order is selected
             if (lstEditOrder.SelectedIndex != -1)
             {
-                //Empty dataset tables tyre type, tyre
+                //Empty dataset table tyre type
                 dsLimitlessTyres.Tables["TyreType"].Clear();
 
                 //Clear tyre type, tyre listbox
@@ -1010,11 +893,10 @@ namespace LimitlessTyres
                 nudEditQty.Value = 0;
                 nudEditQty.Enabled = false;
 
-                //Clear and enable listview
+                //Clear listview
                 lvwEditTyre.Items.Clear();
-                lvwEditTyre.Enabled = true;
 
-                //Disable panels
+                //Disable edit tyre panel
                 pnlEditTyre1.Enabled = false;
 
                 //Enable buttons
@@ -1028,7 +910,7 @@ namespace LimitlessTyres
                 //Find order and set datarow
                 drOrder = dsLimitlessTyres.Tables["OrderPar"].Rows.Find(lstEditOrder.SelectedValue);
 
-                //Display order ID and order date
+                //Display order ID and date
                 lblEditOrder0.Text = "Order ID: " + drOrder["OrderID"].ToString();
                 lblEditOrder1.Text = "Order Date: " + drOrder["OrderDate"].ToString().Substring(0, 10);
 
@@ -1054,26 +936,8 @@ namespace LimitlessTyres
                     }
                 }
 
-                //calculate and display discount and order cost
-                double cost = 0;
-
-                foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                {
-                    if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                    {
-                        foreach (ListViewItem item in lvwEditTyre.Items)
-                        {
-                            cost += Convert.ToDouble(item.SubItems[4].Text);
-                        }
-
-                        lblEditDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                        lblEditCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                    }
-                }
-
-                //Auto resize listview columns
-                lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                CalcEditOrderDiscountCost();
+                AutoResizeEditListView();
             }
         }
 
@@ -1082,7 +946,7 @@ namespace LimitlessTyres
             //Check if a tyre type is Selected
             if (lstEditTyreType.SelectedIndex != -1)
             {
-                //Empty dataset table tyre
+                //Empty dataset tables tyre, order
                 dsLimitlessTyres.Tables["TyrePar"].Clear();
                 dsLimitlessTyres.Tables["OrderDetPar"].Clear();
 
@@ -1129,47 +993,7 @@ namespace LimitlessTyres
 
         private void rdoEditTradeGeneral_CheckedChanged(object sender, EventArgs e)
         {
-            ClearEditCustDetails();
-
-            //Empty dataset tables customer, order, tyre type, tyre
-            dsLimitlessTyres.Tables["CustomerPar"].Clear();
-            dsLimitlessTyres.Tables["OrderPar"].Clear();
-            dsLimitlessTyres.Tables["TyreType"].Clear();
-
-            //Clear tyre type, tyre listbox
-            if (lstEditTyreType.Items.Count == 1)
-                lstEditTyreType.Items.Clear();
-            lstEditTyre.Items.Clear();
-
-            //Enable buttons
-            btnEditAdd.Enabled = true;
-            btnEditEdit.Enabled = true;
-            btnEditDelete.Enabled = true;
-
-            //Change button text
-            btnEditAdd.Text = "Add Tyre";
-            btnEditEdit.Text = "Edit Tyre Qty";
-
-            //Clear and disable numericUpDown
-            nudEditQty.Value = 0;
-            nudEditQty.Enabled = false;
-
-            //Clear and disable listview
-            lvwEditTyre.Items.Clear();
-            lvwEditTyre.Enabled = false;
-
-            //Clear order ID, date, discount and cost
-            lblEditOrder0.Text = "";
-            lblEditOrder1.Text = "";
-            lblEditDiscount.Text = "";
-            lblEditCost.Text = "";
-
-            //Disable panels
-            pnlEditOrder1.Enabled = false;
-            pnlEditTyre1.Enabled = false;
-
-            //Hide add/edit cancel button
-            btnEditAddEditCancel.Visible = false;
+            ClearEditTab();
         }
 
         private void FillListboxEditCust(String str)
@@ -1183,7 +1007,7 @@ namespace LimitlessTyres
             cmdCustomerPar.Parameters["@Letter"].Value = str + "%";
             daCustomerPar.Fill(dsLimitlessTyres, "CustomerPar");
 
-            //Fill customer listbox
+            //Fill listbox
             lstEditCust.DataSource = dsLimitlessTyres.Tables["CustomerPar"];
             lstEditCust.DisplayMember = "Name";
             lstEditCust.ValueMember = "CustomerID";
@@ -1219,16 +1043,111 @@ namespace LimitlessTyres
             lblEditCust5.Text = "";
         }
 
+        private void ClearEditTab()
+        {
+            ClearEditCustDetails();
+
+            //Empty dataset tables customer, order, tyre type, tyre
+            dsLimitlessTyres.Tables["CustomerPar"].Clear();
+            dsLimitlessTyres.Tables["OrderPar"].Clear();
+            dsLimitlessTyres.Tables["TyreType"].Clear();
+
+            //Clear tyre type, tyre listbox
+            if (lstEditTyreType.Items.Count == 1)
+                lstEditTyreType.Items.Clear();
+            lstEditTyre.Items.Clear();
+
+            //Change add/edit qty button text
+            btnEditAdd.Text = "Add Tyre";
+            btnEditEdit.Text = "Edit Tyre Qty";
+
+            //Clear and disable numericUpDown
+            nudEditQty.Value = 0;
+            nudEditQty.Enabled = false;
+
+            //Clear listview
+            lvwEditTyre.Items.Clear();
+
+            //Clear order ID, date, discount and cost
+            lblEditOrder0.Text = "";
+            lblEditOrder1.Text = "";
+            lblEditDiscount.Text = "";
+            lblEditCost.Text = "";
+
+            //Disable panels
+            pnlEditOrder1.Enabled = false;
+            pnlEditTyre1.Enabled = false;
+
+            //Hide add/edit qty cancel button
+            btnEditAddEditCancel.Visible = false;
+
+            //Enable buttons
+            btnEditAdd.Enabled = true;
+            btnEditDelete.Enabled = true;
+            btnEditEdit.Enabled = true;
+        }
+
+        private void SetEditAlphabetButtons()
+        {
+            //Set text for alphabet buttons
+            for (int i = 0; i < 26; i++)
+            {
+                btns[i] = (Button)pnlEditLetterBtns.Controls[i];
+                btns[i].Text = "" + (char)(65 + i);
+                btns[i].Enabled = false;
+                btns[i].Click += new EventHandler(btnEditA_Click);
+            }
+
+            //Get surnames for alphabet buttons
+            sqlNames = @"SELECT CustomerSurname FROM customer ORDER BY CustomerSurname";
+            daNames = new SqlDataAdapter(sqlNames, connStr);
+            daNames.Fill(dsLimitlessTyres, "Names");
+
+            //Enable relevant alphabet buttons
+            foreach (DataRow dr in dsLimitlessTyres.Tables["Names"].Rows)
+            {
+                int no = (int)dr["CustomerSurname"].ToString()[0] - 65;
+                btns[no].Enabled = true;
+                btns[no].BackColor = Color.White;
+            }
+        }
+
+        private void AutoResizeEditListView()
+        {
+            lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void CalcEditOrderDiscountCost()
+        {
+            double cost = 0;
+
+            foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
+            {
+                if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
+                {
+                    foreach (ListViewItem item in lvwEditTyre.Items)
+                    {
+                        cost += Convert.ToDouble(item.SubItems[4].Text);
+                    }
+
+                    lblEditDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
+                    lblEditCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
+                }
+            }
+        }
+
         //Button panel
         private void btnEditAdd_Click(object sender, EventArgs e)
         {
+            //Check if a customer and order is selected
             if (lstEditCust.SelectedIndex == -1)
                 MessageBox.Show("Please select a customer", "Add Tyre");
-            else if (lstEditOrder.SelectedIndex==-1)
+            else if (lstEditOrder.SelectedIndex == -1)
                 MessageBox.Show("Please select an order", "Add Tyre");
             else if (btnEditAdd.Text == "Add Tyre")
             {
-                //Enable panel
+                //Enable edit tyre panel
                 pnlEditTyre1.Enabled = true;
 
                 //Change add button text
@@ -1238,7 +1157,7 @@ namespace LimitlessTyres
                 btnEditDelete.Enabled = false;
                 btnEditEdit.Enabled = false;
 
-                //Enable listviews
+                //Enable listboxes
                 lstEditTyreType.Enabled = true;
                 lstEditTyre.Enabled = true;
 
@@ -1267,89 +1186,94 @@ namespace LimitlessTyres
                 }
                 else
                 {
-                    //Add new row to order details table
-                    DataRow drOrderDet = dsLimitlessTyres.Tables["OrderDet"].NewRow();
+                    bool stock = false;
 
-                    drOrderDet["OrderID"] = Convert.ToInt32(lstEditOrder.Text);
-                    drOrderDet["TyreID"] = lstEditTyre.Text;
-                    drOrderDet["Quantity"] = Convert.ToInt32(nudEditQty.Text);
-                    dsLimitlessTyres.Tables["OrderDet"].Rows.Add(drOrderDet);
-                    daOrderDet.Update(dsLimitlessTyres, "OrderDet");
+                    //Check if tyre has stock
+                    DataRow drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(lstEditTyre.SelectedItem);
 
-                    //Clear listview
-                    lvwEditTyre.Items.Clear();
+                    if (Convert.ToInt32(drTyre["QtyInStock"]) > nudEditQty.Value)
+                        stock = true;
 
-                    //get all kennel details for listbox
-                    cmdOrderDetPar.Parameters["@OrderID"].Value = lstEditOrder.SelectedValue;
-
-                    daOrderDetPar.Fill(dsLimitlessTyres, "OrderDetPar");
-
-                    //Update listview
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
+                    if (!stock)
                     {
-                        if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
+                        MessageBox.Show("Sorry. There is not enough stock of this tyre.", "Add Tyre");
+                    }
+                    else
+                    {
+                        //Add new row to order details table
+                        DataRow drOrderDet = dsLimitlessTyres.Tables["OrderDet"].NewRow();
+
+                        drOrderDet["OrderID"] = Convert.ToInt32(lstEditOrder.Text);
+                        drOrderDet["TyreID"] = lstEditTyre.Text;
+                        drOrderDet["Quantity"] = Convert.ToInt32(nudEditQty.Text);
+
+                        dsLimitlessTyres.Tables["OrderDet"].Rows.Add(drOrderDet);
+
+                        daOrderDet.Update(dsLimitlessTyres, "OrderDet");
+
+                        //Clear listview
+                        lvwEditTyre.Items.Clear();
+
+                        //get all kennel details for listbox
+                        cmdOrderDetPar.Parameters["@OrderID"].Value = lstEditOrder.SelectedValue;
+
+                        daOrderDetPar.Fill(dsLimitlessTyres, "OrderDetPar");
+
+                        //Update listview
+                        foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
                         {
-                            foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
+                            if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
                             {
-                                if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
+                                foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
                                 {
-                                    ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
-                                    item.SubItems.Add(dr2["TyreDesc"].ToString());
-                                    item.SubItems.Add(dr2["TyrePrice"].ToString());
+                                    if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
+                                    {
+                                        ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
+                                        item.SubItems.Add(dr2["TyreDesc"].ToString());
+                                        item.SubItems.Add(dr2["TyrePrice"].ToString());
 
-                                    item.SubItems.Add(dr["Quantity"].ToString());
-                                    item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
-                                    lvwEditTyre.Items.Add(item);
+                                        item.SubItems.Add(dr["Quantity"].ToString());
+                                        item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
+                                        lvwEditTyre.Items.Add(item);
 
-                                    break;
+                                        break;
+                                    }
                                 }
                             }
                         }
+
+                        CalcEditOrderDiscountCost();
+
+                        //Update Tyre stock
+                        drTyre["QtyInStock"] = Convert.ToInt32(drTyre["QtyInStock"]) - Convert.ToInt32(nudEditQty.Value);
+                        daTyre.Update(dsLimitlessTyres, "Tyre");
+
+                        AutoResizeEditListView();
+
+                        //Empty dataset table tyre type
+                        dsLimitlessTyres.Tables["TyreType"].Clear();
+
+                        //Clear tyre type listbox
+                        lstEditTyre.Items.Clear();
+
+                        //Disable and reset numericUpDown
+                        nudEditQty.Enabled = false;
+                        nudEditQty.Text = "0";
+
+                        //Disable panel
+                        pnlEditTyre1.Enabled = false;
+
+                        //Change button text
+                        btnEditAdd.Text = "Add Tyre";
+
+                        //Enable buttons
+                        btnEditDelete.Enabled = true;
+                        btnEditEdit.Enabled = true;
+
+                        //Make add/edit cancel buttton and line invisible
+                        btnEditAddEditCancel.Visible = false;
+                        pcbEditAddEditCancelLine.Visible = false;
                     }
-
-                    //Calculate and display discount and Order Cost
-                    double cost = 0;
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                    {
-                        if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                        {
-                            foreach (ListViewItem item in lvwEditTyre.Items)
-                            {
-                                cost += Convert.ToDouble(item.SubItems[4].Text);
-                            }
-
-                            lblEditDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                            lblEditCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                        }
-                    }
-
-                    //Auto resize listview columns
-                    lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                    lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-                    //Empty dataset table tyre type
-                    dsLimitlessTyres.Tables["TyreType"].Clear();
-
-                    //Clear tyre type listbox
-                    lstEditTyre.Items.Clear();
-
-                    //Disable and reset numericUpDown
-                    nudEditQty.Enabled = false;
-                    nudEditQty.Text = "0";
-
-                    //Disable panel
-                    pnlEditTyre1.Enabled = false;
-
-                    //Change button text
-                    btnEditAdd.Text = "Add Tyre";
-
-                    //Enable buttons
-                    btnEditDelete.Enabled = true;
-                    btnEditEdit.Enabled = true;
-
-                    //Make add/edit cancel buttton and line invisible
-                    btnEditAddEditCancel.Visible = false;
-                    pcbEditAddEditCancelLine.Visible = false;
                 }
             }
         }
@@ -1369,6 +1293,11 @@ namespace LimitlessTyres
                     primaryKey[1] = currItem.SubItems[0].Text;
 
                     DataRow drOrderDet = dsLimitlessTyres.Tables["OrderDet"].Rows.Find(primaryKey);
+
+                    DataRow drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(drOrderDet["TyreID"]);
+
+                    drTyre["QtyInStock"] = Convert.ToInt32(drTyre["QtyInStock"]) + Convert.ToInt32(lvwEditTyre.SelectedItems[0].SubItems[3].Text);
+                    daTyre.Update(dsLimitlessTyres, "Tyre");
 
                     lvwEditTyre.Items.Remove(currItem);
 
@@ -1393,26 +1322,11 @@ namespace LimitlessTyres
                         FillListboxEditOrder();
                     }
 
-                    //Calculate and display discount and order cost
-                    double cost = 0;
-
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                    {
-                        if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                        {
-                            foreach (ListViewItem item in lvwEditTyre.Items)
-                            {
-                                cost += Convert.ToDouble(item.SubItems[4].Text);
-                            }
-
-                            lblEditDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                            lblEditCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                        }
-                    }
+                    CalcEditOrderDiscountCost();
                 }
             }
             else
-                MessageBox.Show("Please select the tyre that you wish to remove from the order", "Remove Tyre");
+                MessageBox.Show("Please select the tyre that you wish to remove from the order.", "Remove Tyre");
         }
 
         private void btnEditEdit_Click(object sender, EventArgs e)
@@ -1458,94 +1372,103 @@ namespace LimitlessTyres
                     btnEditAddEditCancel.Visible = true;
                     btnEditAddEditCancel.Text = "Cancel Qty Edit";
                 }
-                
+
                 else
                 {
-                    //Find order detail row by primary key
-                    object[] primaryKey = new object[2];
+                    bool stock = false;
 
-                    ListViewItem currItem = lvwEditTyre.SelectedItems[0];
+                    //Check if tyre has stock
+                    DataRow drTyre = dsLimitlessTyres.Tables["Tyre"].Rows.Find(lvwEditTyre.SelectedItems[0].SubItems[0].Text);
 
-                    primaryKey[0] = Convert.ToInt32(lstEditOrder.Text);
-                    primaryKey[1] = currItem.SubItems[0].Text;
+                    if (Convert.ToInt32(drTyre["QtyInStock"]) > nudEditQty.Value)
+                        stock = true;
 
-                    drOrderDet = dsLimitlessTyres.Tables["OrderDet"].Rows.Find(primaryKey);
-
-                    //Update quantity value
-                    drOrderDet["Quantity"] = nudEditQty.Value;
-
-                    daOrderDet.Update(dsLimitlessTyres, "OrderDet");
-
-                    //Clear listview
-                    lvwEditTyre.Items.Clear();
-
-                    //Update listview
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
+                    if (!stock)
                     {
-                        if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
-                        {
-                            foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
-                            {
-                                if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
-                                {
-                                    ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
-                                    item.SubItems.Add(dr2["TyreDesc"].ToString());
-                                    item.SubItems.Add(dr2["TyrePrice"].ToString());
+                        MessageBox.Show("Sorry. There is not enough stock of this tyre.", "Add Tyre");
+                    }
+                    else
+                    {
+                        int oldQty, newQty;
 
-                                    item.SubItems.Add(dr["Quantity"].ToString());
-                                    item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
-                                    lvwEditTyre.Items.Add(item);
-                                    break;
+                        //Find order detail row by primary key
+                        object[] primaryKey = new object[2];
+
+                        ListViewItem currItem = lvwEditTyre.SelectedItems[0];
+
+                        primaryKey[0] = Convert.ToInt32(lstEditOrder.Text);
+                        primaryKey[1] = currItem.SubItems[0].Text;
+
+                        drOrderDet = dsLimitlessTyres.Tables["OrderDet"].Rows.Find(primaryKey);
+
+                        oldQty = Convert.ToInt32(drOrderDet["Quantity"]);
+
+                        //Update quantity value
+                        drOrderDet["Quantity"] = nudEditQty.Value;
+
+                        daOrderDet.Update(dsLimitlessTyres, "OrderDet");
+
+                        newQty = Convert.ToInt32(drOrderDet["Quantity"]);
+
+                        //Clear listview
+                        lvwEditTyre.Items.Clear();
+
+                        //Update listview
+                        foreach (DataRow dr in dsLimitlessTyres.Tables["OrderDet"].Rows)
+                        {
+                            if (dr["OrderID"].ToString() == drOrder["OrderID"].ToString())
+                            {
+                                foreach (DataRow dr2 in dsLimitlessTyres.Tables["Tyre"].Rows)
+                                {
+                                    if (dr2["TyreID"].ToString() == dr["TyreID"].ToString())
+                                    {
+                                        ListViewItem item = new ListViewItem(dr2["TyreID"].ToString());
+                                        item.SubItems.Add(dr2["TyreDesc"].ToString());
+                                        item.SubItems.Add(dr2["TyrePrice"].ToString());
+
+                                        item.SubItems.Add(dr["Quantity"].ToString());
+                                        item.SubItems.Add((Convert.ToDecimal(dr["Quantity"].ToString()) * Convert.ToDecimal(dr2["TyrePrice"])).ToString());
+                                        lvwEditTyre.Items.Add(item);
+                                        break;
+                                    }
                                 }
                             }
                         }
+
+                        CalcEditOrderDiscountCost();
+                        
+                        //Update tyre stock
+                        drTyre["QtyInStock"] = Convert.ToInt32(drTyre["QtyInStock"]) + (oldQty - newQty);
+                        daTyre.Update(dsLimitlessTyres, "Tyre");
+
+                        AutoResizeEditListView();
+
+                        //Clear listviews
+                        lstEditTyreType.Items.Clear();
+                        lstEditTyre.Items.Clear();
+
+                        //Enable buttons
+                        btnEditAdd.Enabled = true;
+                        btnEditDelete.Enabled = true;
+
+                        //Change button ext
+                        btnEditEdit.Text = "Edit Tyre Qty";
+
+                        //Disable and reset numericUpDown
+                        nudEditQty.Enabled = false;
+                        nudEditQty.Text = "0";
+
+                        //Disable panel
+                        pnlEditTyre1.Enabled = false;
+
+                        //Make add/edit cancel buttton and line invisible
+                        btnEditAddEditCancel.Visible = false;
+                        pcbEditAddEditCancelLine.Visible = false;
                     }
-
-                    //Calculate and display discount and order cost
-                    double cost = 0;
-                    foreach (DataRow dr in dsLimitlessTyres.Tables["CustomerType"].Rows)
-                    {
-                        if (dr["CustomerTypeID"].ToString() == drCustomer["CustomerTypeID"].ToString())
-                        {
-                            foreach (ListViewItem item in lvwEditTyre.Items)
-                            {
-                                cost += Convert.ToDouble(item.SubItems[4].Text);
-                            }
-
-                            lblEditDiscount.Text = "Discount:  " + Convert.ToDecimal(dr["DiscountPercentage"]) * 100 + "%";
-                            lblEditCost.Text = String.Format("Order Cost:  £{0:0.00}", cost * (1 - Convert.ToDouble(dr["DiscountPercentage"])));
-                        }
-                    }
-
-                    //Auto resize listview columns
-                    lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                    lvwEditTyre.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-                    //Clear listviews
-                    lstEditTyreType.Items.Clear();
-                    lstEditTyre.Items.Clear();
-
-                    //Enable buttons
-                    btnEditAdd.Enabled = true;
-                    btnEditDelete.Enabled = true;
-
-                    //Change button ext
-                    btnEditEdit.Text = "Edit Tyre Qty";
-
-                    //Disable and reset numericUpDown
-                    nudEditQty.Enabled = false;
-                    nudEditQty.Text = "0";
-
-                    //Disable panel
-                    pnlEditTyre1.Enabled = false;
-
-                    //Make add/edit cancel buttton and line invisible
-                    btnEditAddEditCancel.Visible = false;
-                    pcbEditAddEditCancelLine.Visible = false;
                 }
             }
             else
-                MessageBox.Show("Please select a tyre to edit the quantity ordered", "Edit Tyre Qty");
+                MessageBox.Show("Please select a tyre to edit the quantity ordered.", "Edit Tyre Qty");
         }
 
         private void btnEditCancel_Click(object sender, EventArgs e)
@@ -1603,6 +1526,7 @@ namespace LimitlessTyres
 
                 //Disable panel
                 pnlEditTyre1.Enabled = false;
+
                 //Hide add/edit cancel button
                 btnEditAddEditCancel.Visible = false;
 
@@ -1654,8 +1578,8 @@ namespace LimitlessTyres
 
         private void btnEditAddEditCancel_MouseEnter(object sender, EventArgs e)
         {
-            if (btnEditAddEditCancel.Text=="Cancel Addition" || btnEditAddEditCancel.Text == "Cancel Qty Edit")
-            pcbEditAddEditCancelLine.Visible = true;
+            if (btnEditAddEditCancel.Text == "Cancel Addition" || btnEditAddEditCancel.Text == "Cancel Qty Edit")
+                pcbEditAddEditCancelLine.Visible = true;
         }
 
         private void btnEditAddEditCancel_MouseLeave(object sender, EventArgs e)

@@ -105,12 +105,22 @@ namespace LimitlessTyres
 
         private void btnNavHome_Click(object sender, EventArgs e)
         {
-
+            frmHome frm = new frmHome();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.WindowState = FormWindowState.Maximized;
+            pnlForm.Controls.Add(frm);
+            frm.Show();
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-
+            frmHome frm = new frmHome();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.WindowState = FormWindowState.Maximized;
+            pnlForm.Controls.Add(frm);
+            frm.Show();
         }
     }
 }

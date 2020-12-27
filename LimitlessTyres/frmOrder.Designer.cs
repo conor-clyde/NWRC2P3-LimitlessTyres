@@ -487,7 +487,6 @@
             this.clhPrice,
             this.clhQty,
             this.clhSubtotal});
-            this.lvwAddTyre.Enabled = false;
             this.lvwAddTyre.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvwAddTyre.FullRowSelect = true;
             this.lvwAddTyre.HideSelection = false;
@@ -1007,6 +1006,11 @@
             this.nudAddQty.Enabled = false;
             this.nudAddQty.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudAddQty.Location = new System.Drawing.Point(335, 24);
+            this.nudAddQty.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudAddQty.Name = "nudAddQty";
             this.nudAddQty.Size = new System.Drawing.Size(74, 25);
             this.nudAddQty.TabIndex = 10;
@@ -1834,6 +1838,11 @@
             this.nudEditQty.Enabled = false;
             this.nudEditQty.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudEditQty.Location = new System.Drawing.Point(72, 198);
+            this.nudEditQty.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudEditQty.Name = "nudEditQty";
             this.nudEditQty.Size = new System.Drawing.Size(74, 25);
             this.nudEditQty.TabIndex = 22;
@@ -2294,7 +2303,6 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader2});
-            this.lvwEditTyre.Enabled = false;
             this.lvwEditTyre.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvwEditTyre.FullRowSelect = true;
             this.lvwEditTyre.HideSelection = false;

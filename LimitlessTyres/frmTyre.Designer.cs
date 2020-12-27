@@ -398,7 +398,7 @@
             // 
             this.nudAddStock.Location = new System.Drawing.Point(130, 268);
             this.nudAddStock.Maximum = new decimal(new int[] {
-            200,
+            1000,
             0,
             0,
             0});
@@ -411,7 +411,7 @@
             this.nudAddPrice.DecimalPlaces = 2;
             this.nudAddPrice.Location = new System.Drawing.Point(130, 237);
             this.nudAddPrice.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
@@ -678,7 +678,7 @@
             this.nudEditStock.Enabled = false;
             this.nudEditStock.Location = new System.Drawing.Point(130, 268);
             this.nudEditStock.Maximum = new decimal(new int[] {
-            200,
+            1000,
             0,
             0,
             0});
@@ -692,7 +692,7 @@
             this.nudEditPrice.Enabled = false;
             this.nudEditPrice.Location = new System.Drawing.Point(130, 237);
             this.nudEditPrice.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
@@ -759,9 +759,7 @@
             "17",
             "18",
             "19",
-            "20",
-            "21",
-            "22"});
+            "20"});
             this.cmbEditDiameter.Location = new System.Drawing.Point(130, 82);
             this.cmbEditDiameter.Name = "cmbEditDiameter";
             this.cmbEditDiameter.Size = new System.Drawing.Size(85, 25);
@@ -819,15 +817,15 @@
             this.cmbEditWidth.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEditWidth.FormattingEnabled = true;
             this.cmbEditWidth.Items.AddRange(new object[] {
+            "165",
+            "175",
+            "185",
+            "195",
+            "205",
             "215",
             "225",
             "235",
-            "245",
-            "255",
-            "265",
-            "275",
-            "285",
-            "295"});
+            "245"});
             this.cmbEditWidth.Location = new System.Drawing.Point(130, 20);
             this.cmbEditWidth.Name = "cmbEditWidth";
             this.cmbEditWidth.Size = new System.Drawing.Size(85, 25);

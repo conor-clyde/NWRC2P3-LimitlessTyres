@@ -146,3 +146,16 @@ D:\School 211220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\Limitl
 D:\School 211220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.csproj.CoreCompileInputs.cache
 D:\School 211220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.exe
 D:\School 211220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.pdb
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\bin\Debug\LimitlessTyres.exe.config
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\bin\Debug\LimitlessTyres.exe
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\bin\Debug\LimitlessTyres.pdb
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.csprojAssemblyReference.cache
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.frmHome.resources
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.frmMainMenu.resources
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.frmOrder.resources
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.frmTyre.resources
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.Properties.Resources.resources
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.csproj.GenerateResource.cache
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.csproj.CoreCompileInputs.cache
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.exe
+D:\School 261220\FDSD\FDSD2\C#\VS\LimitlessTyres\LimitlessTyres\obj\Debug\LimitlessTyres.pdb

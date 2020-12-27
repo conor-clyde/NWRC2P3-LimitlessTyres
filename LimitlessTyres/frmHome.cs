@@ -16,5 +16,15 @@ namespace LimitlessTyres
         {
             InitializeComponent();
         }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tmrHome_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

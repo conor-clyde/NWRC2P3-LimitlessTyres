@@ -85,10 +85,10 @@ namespace LimitlessTyres
             get { return tyrePrice; }
             set
             {
-                if (MyValidation.validMoney(Convert.ToString(value)) && value>=0)
+                if (MyValidation.validMoney(Convert.ToString(value)) && value>0)
                     tyrePrice = value;
                 else
-                    throw new MyException("Tyre Price must be a number, and not be negative.");
+                    throw new MyException("Tyre Price must be a number, and greater than 0.");
             }
         }
 
