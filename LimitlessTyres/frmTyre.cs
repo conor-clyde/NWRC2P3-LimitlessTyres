@@ -85,7 +85,6 @@ namespace LimitlessTyres
             tbcTyre.TabPages[tbcTyre.SelectedIndex].CausesValidation = true;
 
             switch (tbcTyre.SelectedIndex)
-            {
                 case 0:
                     dsLimitlessTyres.Tables["Tyre"].Clear();
                     daTyre.Fill(dsLimitlessTyres, "Tyre");
@@ -117,8 +116,19 @@ namespace LimitlessTyres
                     nudEditPrice.Text = drTyre["TyrePrice"].ToString();
                     nudEditStock.Text = drTyre["QtyInStock"].ToString();
 
+                    cmbEditWidth.Enabled = false;
+                    cmbEditProfile.Enabled = false;
+                    cmbEditDiameter.Enabled = false;
+                    cmbEditSpeed.Enabled = false;
+                    cmbEditTyreType.Enabled = false;
+                    cmbEditSupplier.Enabled = false;
+                    txtEditDesc.Enabled = false;
+                    nudEditPrice.Enabled = false;
+                    nudEditStock.Enabled = false;
+
+                    btnEditEdit.Text = "Edit Tyre";
+
                     break;
-            }
         }
 
         private void frmTyre_Shown(object sender, EventArgs e)

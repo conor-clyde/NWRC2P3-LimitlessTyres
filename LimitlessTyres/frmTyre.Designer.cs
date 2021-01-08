@@ -475,9 +475,7 @@
             "17",
             "18",
             "19",
-            "20",
-            "21",
-            "22"});
+            "20"});
             this.cmbAddDiameter.Location = new System.Drawing.Point(130, 82);
             this.cmbAddDiameter.Name = "cmbAddDiameter";
             this.cmbAddDiameter.Size = new System.Drawing.Size(85, 25);
@@ -533,15 +531,15 @@
             this.cmbAddWidth.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAddWidth.FormattingEnabled = true;
             this.cmbAddWidth.Items.AddRange(new object[] {
+            "165",
+            "175",
+            "185",
+            "195",
+            "205",
             "215",
             "225",
             "235",
-            "245",
-            "255",
-            "265",
-            "275",
-            "285",
-            "295"});
+            "245"});
             this.cmbAddWidth.Location = new System.Drawing.Point(130, 20);
             this.cmbAddWidth.Name = "cmbAddWidth";
             this.cmbAddWidth.Size = new System.Drawing.Size(85, 25);
