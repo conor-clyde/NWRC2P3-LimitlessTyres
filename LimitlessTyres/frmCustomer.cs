@@ -562,7 +562,7 @@ namespace LimitlessTyres
             {
 
                 drCustomer = dsLimitlessTyres.Tables["Customer"].Rows.Find(dgvCustomers.SelectedRows[0].Cells[0].Value);
-                string tempName = drCustomer["Forename"].ToString() + " " + drCustomer["Surname"].ToString() + "\'s";
+                string tempName = drCustomer["CustomerForename"].ToString() + " " + drCustomer["CustomerSurname"].ToString() + "\'s";
 
                 if (MessageBox.Show("Are you sure you want to delete " + tempName + "details?", "Add Customer", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
