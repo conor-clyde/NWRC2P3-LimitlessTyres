@@ -162,5 +162,45 @@ namespace LimitlessTyres
             }
             return new String(array);
         }
+
+        public static bool validSurname(string txt) //allows alphabetic, dash and whitespace
+        {
+            bool ok = true;
+
+            if (txt.Trim().Length == 0)
+            {
+                ok = false;
+            }
+            else
+            {
+                for (int x = 0; x < txt.Length; x++)
+                {
+                    if (!(char.IsLetter(txt[x])) && !(char.IsWhiteSpace(txt[x])) && !(txt[x].Equals('-')) && !(txt[x].Equals('\'')))
+                        ok = false;
+                }
+            }
+            return ok;
+        }
+
+        public static bool validForename(string txt) //allows alphabetic, dash and whitespace
+        {
+            bool ok = true;
+
+            if (txt.Trim().Length == 0)
+            {
+                ok = false;
+            }
+            else
+            {
+                for (int x = 0; x < txt.Length; x++)
+                {
+                    if (!(char.IsLetter(txt[x])) && !(char.IsWhiteSpace(txt[x])) && !(txt[x].Equals('-')))
+                        ok = false;
+                }
+            }
+            return ok;
+        }
+
+
     }
 }

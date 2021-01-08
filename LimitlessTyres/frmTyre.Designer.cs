@@ -156,6 +156,7 @@
             this.dgvTyre.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTyre.Size = new System.Drawing.Size(772, 426);
             this.dgvTyre.TabIndex = 31;
+            this.dgvTyre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTyre_CellContentClick);
             // 
             // pnlDisplayButtons
             // 

@@ -141,6 +141,7 @@
             this.btnNavBooking.Text = "Service";
             this.btnNavBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavBooking.UseVisualStyleBackColor = true;
+            this.btnNavBooking.Click += new System.EventHandler(this.btnNavBooking_Click);
             this.btnNavBooking.MouseEnter += new System.EventHandler(this.btnNavBooking_MouseEnter);
             this.btnNavBooking.MouseLeave += new System.EventHandler(this.btnNavBooking_MouseLeave);
             // 
@@ -227,6 +228,7 @@
             this.btnNavCust.Text = "Customer";
             this.btnNavCust.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavCust.UseVisualStyleBackColor = true;
+            this.btnNavCust.Click += new System.EventHandler(this.btnNavCust_Click);
             this.btnNavCust.MouseEnter += new System.EventHandler(this.btnNavCust_MouseEnter);
             this.btnNavCust.MouseLeave += new System.EventHandler(this.btnNavCust_MouseLeave);
             // 

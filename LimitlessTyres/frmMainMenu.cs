@@ -122,5 +122,25 @@ namespace LimitlessTyres
             pnlForm.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnNavCust_Click(object sender, EventArgs e)
+        {
+            CustomerFrm frm = new CustomerFrm();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.WindowState = FormWindowState.Maximized;
+            pnlForm.Controls.Add(frm);
+            frm.Show();
+        }
+
+        private void btnNavBooking_Click(object sender, EventArgs e)
+        {
+            frmServices frm = new frmServices();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.WindowState = FormWindowState.Maximized;
+            pnlForm.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }

@@ -85,6 +85,7 @@ namespace LimitlessTyres
             tbcTyre.TabPages[tbcTyre.SelectedIndex].CausesValidation = true;
 
             switch (tbcTyre.SelectedIndex)
+            {
                 case 0:
                     dsLimitlessTyres.Tables["Tyre"].Clear();
                     daTyre.Fill(dsLimitlessTyres, "Tyre");
@@ -129,6 +130,7 @@ namespace LimitlessTyres
                     btnEditEdit.Text = "Edit Tyre";
 
                     break;
+            }
         }
 
         private void frmTyre_Shown(object sender, EventArgs e)
@@ -374,6 +376,11 @@ namespace LimitlessTyres
         private void btnAddAdd_MouseLeave(object sender, EventArgs e)
         {
             pcbAddAddLine.Visible = false;
+        }
+
+        private void dgvTyre_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnAddCancel_MouseEnter(object sender, EventArgs e)

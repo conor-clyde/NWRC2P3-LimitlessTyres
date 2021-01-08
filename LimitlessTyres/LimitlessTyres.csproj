@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomer.designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,17 +71,27 @@
     <Compile Include="frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServices.designer.cs">
+      <DependentUpon>frmServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTyre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTyre.Designer.cs">
       <DependentUpon>frmTyre.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustomer.cs" />
     <Compile Include="MyException.cs" />
     <Compile Include="MyTyre.cs" />
     <Compile Include="MyValidation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServices.resx">
+      <DependentUpon>frmServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTyre.resx">
       <DependentUpon>frmTyre.cs</DependentUpon>
