@@ -192,6 +192,7 @@
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.RowHeadersWidth = 123;
             this.dgvCustomers.RowTemplate.Height = 46;
+            this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomers.Size = new System.Drawing.Size(686, 424);
             this.dgvCustomers.TabIndex = 0;
             // 
@@ -788,6 +789,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit Customer";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // errP
             // 

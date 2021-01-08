@@ -239,14 +239,14 @@ namespace LimitlessTyres
                     drCustomer = dsLimitlessTyres.Tables["Customer"].NewRow();
 
                     drCustomer["CustomerID"] = myCustomer.CustomerNo;
-                    drCustomer["CustomerType"] = myCustomer.CustomerType;
-                    drCustomer["Surname"] = myCustomer.Surname;
-                    drCustomer["Forename"] = myCustomer.Forename;
-                    drCustomer["Street"] = myCustomer.Street;
-                    drCustomer["Town"] = myCustomer.Town;
-                    drCustomer["County"] = myCustomer.County;
-                    drCustomer["Postcode"] = myCustomer.Postcode;
-                    drCustomer["ContactNo"] = myCustomer.ContactNo;
+                    drCustomer["CustomerTypeID"] = myCustomer.CustomerType;
+                    drCustomer["CustomerSurname"] = myCustomer.Surname;
+                    drCustomer["CustomerForename"] = myCustomer.Forename;
+                    drCustomer["CustomerStreet"] = myCustomer.Street;
+                    drCustomer["CustomerTown"] = myCustomer.Town;
+                    drCustomer["CustomerCounty"] = myCustomer.County;
+                    drCustomer["CustomerPostcode"] = myCustomer.Postcode;
+                    drCustomer["CustomerContactNo"] = myCustomer.ContactNo;
                     drCustomer["CompanyName"] = myCustomer.CompanyName;
 
                     dsLimitlessTyres.Tables["Customer"].Rows.Add(drCustomer);
@@ -335,19 +335,19 @@ namespace LimitlessTyres
 
                             drCustomer = dsLimitlessTyres.Tables["Customer"].Rows.Find(lblCustomerNoEdit.Text);
 
-                            if (drCustomer["CustomerType"].ToString() == "General")
-                                cmbCustomerType2.SelectedIndex = 0;                                
-                            if (drCustomer["CustomerType"].ToString() == "Trade")
-                                cmbCustomerType2.SelectedIndex = 1;
-                            
+                            if (drCustomer["CustomerTypeID"].ToString() == "G")
+                                cmbCustomerType2.Text = "General";                       
+                            if (drCustomer["CustomerTypeID"].ToString() == "T")
+                                cmbCustomerType2.Text = "Trade";
 
-                            txtForename2.Text = drCustomer["Forename"].ToString();
-                            txtSurname2.Text = drCustomer["Surname"].ToString();
-                            txtStreet2.Text = drCustomer["Street"].ToString();
-                            txtTown2.Text = drCustomer["Town"].ToString();
-                            txtCounty2.Text = drCustomer["County"].ToString();
-                            txtPostcode2.Text = drCustomer["Postcode"].ToString();
-                            txtContactNo2.Text = drCustomer["ContactNo"].ToString();
+
+                            txtForename2.Text = drCustomer["CustomerForename"].ToString();
+                            txtSurname2.Text = drCustomer["CustomerSurname"].ToString();
+                            txtStreet2.Text = drCustomer["CustomerStreet"].ToString();
+                            txtTown2.Text = drCustomer["CustomerTown"].ToString();
+                            txtCounty2.Text = drCustomer["CustomerCounty"].ToString();
+                            txtPostcode2.Text = drCustomer["CustomerPostcode"].ToString();
+                            txtContactNo2.Text = drCustomer["CustomerContactNo"].ToString();
                             txtCompanyName2.Text = drCustomer["CompanyName"].ToString();
 
                             break;
@@ -608,6 +608,11 @@ namespace LimitlessTyres
         private void btnEditDisplay_Click(object sender, EventArgs e)
         {
             tabCustomers.SelectedIndex = 2;
+        }
+
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void btnCancel2_Click(object sender, EventArgs e)

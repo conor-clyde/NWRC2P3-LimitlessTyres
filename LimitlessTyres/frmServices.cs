@@ -38,7 +38,6 @@ namespace LimitlessTyres
                 }
             }
 
-
             for (int i = 0; i < 5; i++)
             {
                 if (i == day)

@@ -108,7 +108,7 @@
             this.btnNavTyre.Location = new System.Drawing.Point(427, 3);
             this.btnNavTyre.Name = "btnNavTyre";
             this.btnNavTyre.Size = new System.Drawing.Size(100, 30);
-            this.btnNavTyre.TabIndex = 12;
+            this.btnNavTyre.TabIndex = 4;
             this.btnNavTyre.Text = "Tyre";
             this.btnNavTyre.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavTyre.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.btnNavBooking.Location = new System.Drawing.Point(321, 3);
             this.btnNavBooking.Name = "btnNavBooking";
             this.btnNavBooking.Size = new System.Drawing.Size(100, 30);
-            this.btnNavBooking.TabIndex = 10;
+            this.btnNavBooking.TabIndex = 3;
             this.btnNavBooking.Text = "Service";
             this.btnNavBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavBooking.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             this.btnNavHome.Location = new System.Drawing.Point(3, 3);
             this.btnNavHome.Name = "btnNavHome";
             this.btnNavHome.Size = new System.Drawing.Size(100, 30);
-            this.btnNavHome.TabIndex = 1;
+            this.btnNavHome.TabIndex = 0;
             this.btnNavHome.Text = "Home";
             this.btnNavHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavHome.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             this.btnNavOrder.Location = new System.Drawing.Point(215, 3);
             this.btnNavOrder.Name = "btnNavOrder";
             this.btnNavOrder.Size = new System.Drawing.Size(100, 30);
-            this.btnNavOrder.TabIndex = 3;
+            this.btnNavOrder.TabIndex = 2;
             this.btnNavOrder.Text = "Order";
             this.btnNavOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavOrder.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             this.btnNavCust.Location = new System.Drawing.Point(109, 3);
             this.btnNavCust.Name = "btnNavCust";
             this.btnNavCust.Size = new System.Drawing.Size(100, 30);
-            this.btnNavCust.TabIndex = 2;
+            this.btnNavCust.TabIndex = 1;
             this.btnNavCust.Text = "Customer";
             this.btnNavCust.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavCust.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@
             this.btnExit.Location = new System.Drawing.Point(3, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
-            this.btnExit.TabIndex = 13;
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = false;

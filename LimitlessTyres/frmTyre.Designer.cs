@@ -155,7 +155,7 @@
             this.dgvTyre.RowHeadersVisible = false;
             this.dgvTyre.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTyre.Size = new System.Drawing.Size(772, 426);
-            this.dgvTyre.TabIndex = 31;
+            this.dgvTyre.TabIndex = 111;
             this.dgvTyre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTyre_CellContentClick);
             // 
             // pnlDisplayButtons
@@ -194,7 +194,7 @@
             this.btnDisplayDelete.Location = new System.Drawing.Point(255, 2);
             this.btnDisplayDelete.Name = "btnDisplayDelete";
             this.btnDisplayDelete.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayDelete.TabIndex = 32;
+            this.btnDisplayDelete.TabIndex = 2;
             this.btnDisplayDelete.Text = "Delete Tyre";
             this.btnDisplayDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayDelete.UseVisualStyleBackColor = false;
@@ -224,7 +224,7 @@
             this.btnDisplayEdit.Location = new System.Drawing.Point(129, 2);
             this.btnDisplayEdit.Name = "btnDisplayEdit";
             this.btnDisplayEdit.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayEdit.TabIndex = 30;
+            this.btnDisplayEdit.TabIndex = 1;
             this.btnDisplayEdit.Text = "Edit Tyre";
             this.btnDisplayEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayEdit.UseVisualStyleBackColor = false;
@@ -254,7 +254,7 @@
             this.btnDisplayAdd.Location = new System.Drawing.Point(3, 2);
             this.btnDisplayAdd.Name = "btnDisplayAdd";
             this.btnDisplayAdd.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayAdd.TabIndex = 28;
+            this.btnDisplayAdd.TabIndex = 0;
             this.btnDisplayAdd.Text = "Add Tyre";
             this.btnDisplayAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayAdd.UseVisualStyleBackColor = false;
@@ -309,7 +309,7 @@
             this.btnAddAdd.Location = new System.Drawing.Point(3, 2);
             this.btnAddAdd.Name = "btnAddAdd";
             this.btnAddAdd.Size = new System.Drawing.Size(120, 26);
-            this.btnAddAdd.TabIndex = 28;
+            this.btnAddAdd.TabIndex = 13;
             this.btnAddAdd.Text = "Add Tyre";
             this.btnAddAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddAdd.UseVisualStyleBackColor = false;
@@ -339,7 +339,7 @@
             this.btnAddCancel.Location = new System.Drawing.Point(129, 2);
             this.btnAddCancel.Name = "btnAddCancel";
             this.btnAddCancel.Size = new System.Drawing.Size(120, 26);
-            this.btnAddCancel.TabIndex = 30;
+            this.btnAddCancel.TabIndex = 14;
             this.btnAddCancel.Text = "Cancel";
             this.btnAddCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddCancel.UseVisualStyleBackColor = false;
@@ -382,7 +382,7 @@
             this.cmbAddSupplier.Location = new System.Drawing.Point(130, 175);
             this.cmbAddSupplier.Name = "cmbAddSupplier";
             this.cmbAddSupplier.Size = new System.Drawing.Size(202, 25);
-            this.cmbAddSupplier.TabIndex = 46;
+            this.cmbAddSupplier.TabIndex = 9;
             // 
             // lblAddSupplier
             // 
@@ -405,7 +405,7 @@
             0});
             this.nudAddStock.Name = "nudAddStock";
             this.nudAddStock.Size = new System.Drawing.Size(85, 25);
-            this.nudAddStock.TabIndex = 43;
+            this.nudAddStock.TabIndex = 12;
             // 
             // nudAddPrice
             // 
@@ -418,7 +418,7 @@
             0});
             this.nudAddPrice.Name = "nudAddPrice";
             this.nudAddPrice.Size = new System.Drawing.Size(85, 25);
-            this.nudAddPrice.TabIndex = 42;
+            this.nudAddPrice.TabIndex = 11;
             // 
             // cmbAddTyreType
             // 
@@ -429,7 +429,7 @@
             this.cmbAddTyreType.Location = new System.Drawing.Point(130, 144);
             this.cmbAddTyreType.Name = "cmbAddTyreType";
             this.cmbAddTyreType.Size = new System.Drawing.Size(202, 25);
-            this.cmbAddTyreType.TabIndex = 41;
+            this.cmbAddTyreType.TabIndex = 8;
             // 
             // lblTyreType
             // 
@@ -460,7 +460,7 @@
             this.cmbAddSpeed.Location = new System.Drawing.Point(130, 113);
             this.cmbAddSpeed.Name = "cmbAddSpeed";
             this.cmbAddSpeed.Size = new System.Drawing.Size(85, 25);
-            this.cmbAddSpeed.TabIndex = 38;
+            this.cmbAddSpeed.TabIndex = 7;
             // 
             // cmbAddDiameter
             // 
@@ -480,7 +480,7 @@
             this.cmbAddDiameter.Location = new System.Drawing.Point(130, 82);
             this.cmbAddDiameter.Name = "cmbAddDiameter";
             this.cmbAddDiameter.Size = new System.Drawing.Size(85, 25);
-            this.cmbAddDiameter.TabIndex = 37;
+            this.cmbAddDiameter.TabIndex = 5;
             // 
             // cmbAddProfile
             // 
@@ -501,7 +501,7 @@
             this.cmbAddProfile.Location = new System.Drawing.Point(130, 51);
             this.cmbAddProfile.Name = "cmbAddProfile";
             this.cmbAddProfile.Size = new System.Drawing.Size(85, 25);
-            this.cmbAddProfile.TabIndex = 36;
+            this.cmbAddProfile.TabIndex = 4;
             // 
             // lblDiameter
             // 
@@ -544,7 +544,7 @@
             this.cmbAddWidth.Location = new System.Drawing.Point(130, 20);
             this.cmbAddWidth.Name = "cmbAddWidth";
             this.cmbAddWidth.Size = new System.Drawing.Size(85, 25);
-            this.cmbAddWidth.TabIndex = 32;
+            this.cmbAddWidth.TabIndex = 3;
             // 
             // lblWidth
             // 
@@ -565,7 +565,7 @@
             this.txtAddDesc.Location = new System.Drawing.Point(130, 206);
             this.txtAddDesc.Name = "txtAddDesc";
             this.txtAddDesc.Size = new System.Drawing.Size(202, 25);
-            this.txtAddDesc.TabIndex = 11;
+            this.txtAddDesc.TabIndex = 10;
             // 
             // lblAddDesc
             // 
@@ -659,7 +659,7 @@
             this.cmbEditSupplier.Location = new System.Drawing.Point(130, 175);
             this.cmbEditSupplier.Name = "cmbEditSupplier";
             this.cmbEditSupplier.Size = new System.Drawing.Size(202, 25);
-            this.cmbEditSupplier.TabIndex = 46;
+            this.cmbEditSupplier.TabIndex = 20;
             // 
             // lblSupplier
             // 
@@ -683,7 +683,7 @@
             0});
             this.nudEditStock.Name = "nudEditStock";
             this.nudEditStock.Size = new System.Drawing.Size(85, 25);
-            this.nudEditStock.TabIndex = 43;
+            this.nudEditStock.TabIndex = 23;
             // 
             // nudEditPrice
             // 
@@ -697,7 +697,7 @@
             0});
             this.nudEditPrice.Name = "nudEditPrice";
             this.nudEditPrice.Size = new System.Drawing.Size(85, 25);
-            this.nudEditPrice.TabIndex = 42;
+            this.nudEditPrice.TabIndex = 22;
             // 
             // cmbEditTyreType
             // 
@@ -709,7 +709,7 @@
             this.cmbEditTyreType.Location = new System.Drawing.Point(130, 144);
             this.cmbEditTyreType.Name = "cmbEditTyreType";
             this.cmbEditTyreType.Size = new System.Drawing.Size(202, 25);
-            this.cmbEditTyreType.TabIndex = 41;
+            this.cmbEditTyreType.TabIndex = 19;
             // 
             // lblEditTyreType
             // 
@@ -741,7 +741,7 @@
             this.cmbEditSpeed.Location = new System.Drawing.Point(130, 113);
             this.cmbEditSpeed.Name = "cmbEditSpeed";
             this.cmbEditSpeed.Size = new System.Drawing.Size(85, 25);
-            this.cmbEditSpeed.TabIndex = 38;
+            this.cmbEditSpeed.TabIndex = 18;
             // 
             // cmbEditDiameter
             // 
@@ -762,7 +762,7 @@
             this.cmbEditDiameter.Location = new System.Drawing.Point(130, 82);
             this.cmbEditDiameter.Name = "cmbEditDiameter";
             this.cmbEditDiameter.Size = new System.Drawing.Size(85, 25);
-            this.cmbEditDiameter.TabIndex = 37;
+            this.cmbEditDiameter.TabIndex = 17;
             // 
             // cmbEditProfile
             // 
@@ -784,7 +784,7 @@
             this.cmbEditProfile.Location = new System.Drawing.Point(130, 51);
             this.cmbEditProfile.Name = "cmbEditProfile";
             this.cmbEditProfile.Size = new System.Drawing.Size(85, 25);
-            this.cmbEditProfile.TabIndex = 36;
+            this.cmbEditProfile.TabIndex = 16;
             // 
             // lblEditDiameter
             // 
@@ -828,7 +828,7 @@
             this.cmbEditWidth.Location = new System.Drawing.Point(130, 20);
             this.cmbEditWidth.Name = "cmbEditWidth";
             this.cmbEditWidth.Size = new System.Drawing.Size(85, 25);
-            this.cmbEditWidth.TabIndex = 32;
+            this.cmbEditWidth.TabIndex = 15;
             // 
             // lblEditWidth
             // 
@@ -850,7 +850,7 @@
             this.txtEditDesc.Location = new System.Drawing.Point(130, 206);
             this.txtEditDesc.Name = "txtEditDesc";
             this.txtEditDesc.Size = new System.Drawing.Size(202, 25);
-            this.txtEditDesc.TabIndex = 11;
+            this.txtEditDesc.TabIndex = 21;
             // 
             // lblEditDesc
             // 
@@ -930,7 +930,7 @@
             this.btnEditCancel.Location = new System.Drawing.Point(129, 2);
             this.btnEditCancel.Name = "btnEditCancel";
             this.btnEditCancel.Size = new System.Drawing.Size(120, 26);
-            this.btnEditCancel.TabIndex = 30;
+            this.btnEditCancel.TabIndex = 25;
             this.btnEditCancel.Text = "Cancel";
             this.btnEditCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditCancel.UseVisualStyleBackColor = false;
@@ -949,7 +949,7 @@
             this.btnEditEdit.Location = new System.Drawing.Point(3, 2);
             this.btnEditEdit.Name = "btnEditEdit";
             this.btnEditEdit.Size = new System.Drawing.Size(120, 26);
-            this.btnEditEdit.TabIndex = 28;
+            this.btnEditEdit.TabIndex = 24;
             this.btnEditEdit.Text = "Edit Tyre";
             this.btnEditEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditEdit.UseVisualStyleBackColor = false;

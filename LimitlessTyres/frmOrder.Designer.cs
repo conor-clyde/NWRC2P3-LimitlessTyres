@@ -381,7 +381,7 @@
             this.btnAddCancel.Location = new System.Drawing.Point(381, 2);
             this.btnAddCancel.Name = "btnAddCancel";
             this.btnAddCancel.Size = new System.Drawing.Size(120, 26);
-            this.btnAddCancel.TabIndex = 9;
+            this.btnAddCancel.TabIndex = 35;
             this.btnAddCancel.Text = "Cancel Order";
             this.btnAddCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddCancel.UseVisualStyleBackColor = true;
@@ -422,7 +422,7 @@
             this.btnAddConfirm.Location = new System.Drawing.Point(255, 2);
             this.btnAddConfirm.Name = "btnAddConfirm";
             this.btnAddConfirm.Size = new System.Drawing.Size(120, 26);
-            this.btnAddConfirm.TabIndex = 3;
+            this.btnAddConfirm.TabIndex = 34;
             this.btnAddConfirm.Text = "Confirm Order";
             this.btnAddConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddConfirm.UseVisualStyleBackColor = true;
@@ -452,7 +452,7 @@
             this.btnAddDelete.Location = new System.Drawing.Point(129, 2);
             this.btnAddDelete.Name = "btnAddDelete";
             this.btnAddDelete.Size = new System.Drawing.Size(120, 26);
-            this.btnAddDelete.TabIndex = 2;
+            this.btnAddDelete.TabIndex = 33;
             this.btnAddDelete.Text = "Remove Tyre";
             this.btnAddDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddDelete.UseVisualStyleBackColor = true;
@@ -471,7 +471,7 @@
             this.btnAddAdd.Location = new System.Drawing.Point(3, 2);
             this.btnAddAdd.Name = "btnAddAdd";
             this.btnAddAdd.Size = new System.Drawing.Size(120, 26);
-            this.btnAddAdd.TabIndex = 1;
+            this.btnAddAdd.TabIndex = 32;
             this.btnAddAdd.Text = "Add Tyre";
             this.btnAddAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddAdd.UseVisualStyleBackColor = false;
@@ -550,7 +550,7 @@
             this.lstAddCust.Location = new System.Drawing.Point(3, 23);
             this.lstAddCust.Name = "lstAddCust";
             this.lstAddCust.Size = new System.Drawing.Size(306, 89);
-            this.lstAddCust.TabIndex = 1;
+            this.lstAddCust.TabIndex = 28;
             this.lstAddCust.Click += new System.EventHandler(this.lstAddCust_Click);
             // 
             // pnlAddCustType
@@ -570,7 +570,7 @@
             this.rdoAddTrade.Location = new System.Drawing.Point(3, -1);
             this.rdoAddTrade.Name = "rdoAddTrade";
             this.rdoAddTrade.Size = new System.Drawing.Size(62, 21);
-            this.rdoAddTrade.TabIndex = 12;
+            this.rdoAddTrade.TabIndex = 0;
             this.rdoAddTrade.TabStop = true;
             this.rdoAddTrade.Text = "Trade";
             this.rdoAddTrade.UseVisualStyleBackColor = true;
@@ -583,7 +583,7 @@
             this.rdoAddGeneral.Location = new System.Drawing.Point(70, -1);
             this.rdoAddGeneral.Name = "rdoAddGeneral";
             this.rdoAddGeneral.Size = new System.Drawing.Size(74, 21);
-            this.rdoAddGeneral.TabIndex = 13;
+            this.rdoAddGeneral.TabIndex = 1;
             this.rdoAddGeneral.TabStop = true;
             this.rdoAddGeneral.Text = "General";
             this.rdoAddGeneral.UseVisualStyleBackColor = true;
@@ -640,7 +640,7 @@
             this.btnAdd1.Location = new System.Drawing.Point(3, 3);
             this.btnAdd1.Name = "btnAdd1";
             this.btnAdd1.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd1.TabIndex = 25;
+            this.btnAdd1.TabIndex = 2;
             this.btnAdd1.Text = "button26";
             this.btnAdd1.UseVisualStyleBackColor = true;
             this.btnAdd1.Click += new System.EventHandler(this.btnAddA_Click);
@@ -651,7 +651,7 @@
             this.btnAdd2.Location = new System.Drawing.Point(27, 3);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd2.TabIndex = 24;
+            this.btnAdd2.TabIndex = 3;
             this.btnAdd2.Text = "button25";
             this.btnAdd2.UseVisualStyleBackColor = true;
             this.btnAdd2.Click += new System.EventHandler(this.btnAddA_Click);
@@ -662,7 +662,7 @@
             this.btnAdd3.Location = new System.Drawing.Point(51, 3);
             this.btnAdd3.Name = "btnAdd3";
             this.btnAdd3.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd3.TabIndex = 23;
+            this.btnAdd3.TabIndex = 4;
             this.btnAdd3.Text = "button24";
             this.btnAdd3.UseVisualStyleBackColor = true;
             this.btnAdd3.Click += new System.EventHandler(this.btnAddA_Click);
@@ -673,7 +673,7 @@
             this.btnAdd4.Location = new System.Drawing.Point(75, 3);
             this.btnAdd4.Name = "btnAdd4";
             this.btnAdd4.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd4.TabIndex = 22;
+            this.btnAdd4.TabIndex = 5;
             this.btnAdd4.Text = "button23";
             this.btnAdd4.UseVisualStyleBackColor = true;
             this.btnAdd4.Click += new System.EventHandler(this.btnAddA_Click);
@@ -684,7 +684,7 @@
             this.btnAdd5.Location = new System.Drawing.Point(99, 3);
             this.btnAdd5.Name = "btnAdd5";
             this.btnAdd5.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd5.TabIndex = 21;
+            this.btnAdd5.TabIndex = 6;
             this.btnAdd5.Text = "button22";
             this.btnAdd5.UseVisualStyleBackColor = true;
             this.btnAdd5.Click += new System.EventHandler(this.btnAddA_Click);
@@ -695,7 +695,7 @@
             this.btnAdd6.Location = new System.Drawing.Point(123, 3);
             this.btnAdd6.Name = "btnAdd6";
             this.btnAdd6.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd6.TabIndex = 20;
+            this.btnAdd6.TabIndex = 7;
             this.btnAdd6.Text = "button21";
             this.btnAdd6.UseVisualStyleBackColor = true;
             this.btnAdd6.Click += new System.EventHandler(this.btnAddA_Click);
@@ -706,7 +706,7 @@
             this.btnAdd7.Location = new System.Drawing.Point(147, 3);
             this.btnAdd7.Name = "btnAdd7";
             this.btnAdd7.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd7.TabIndex = 19;
+            this.btnAdd7.TabIndex = 8;
             this.btnAdd7.Text = "button20";
             this.btnAdd7.UseVisualStyleBackColor = true;
             this.btnAdd7.Click += new System.EventHandler(this.btnAddA_Click);
@@ -717,7 +717,7 @@
             this.btnAdd8.Location = new System.Drawing.Point(171, 3);
             this.btnAdd8.Name = "btnAdd8";
             this.btnAdd8.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd8.TabIndex = 18;
+            this.btnAdd8.TabIndex = 9;
             this.btnAdd8.Text = "button19";
             this.btnAdd8.UseVisualStyleBackColor = true;
             this.btnAdd8.Click += new System.EventHandler(this.btnAddA_Click);
@@ -728,7 +728,7 @@
             this.btnAdd9.Location = new System.Drawing.Point(195, 3);
             this.btnAdd9.Name = "btnAdd9";
             this.btnAdd9.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd9.TabIndex = 17;
+            this.btnAdd9.TabIndex = 10;
             this.btnAdd9.Text = "button18";
             this.btnAdd9.UseVisualStyleBackColor = true;
             this.btnAdd9.Click += new System.EventHandler(this.btnAddA_Click);
@@ -739,7 +739,7 @@
             this.btnAdd10.Location = new System.Drawing.Point(219, 3);
             this.btnAdd10.Name = "btnAdd10";
             this.btnAdd10.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd10.TabIndex = 16;
+            this.btnAdd10.TabIndex = 11;
             this.btnAdd10.Text = "button17";
             this.btnAdd10.UseVisualStyleBackColor = true;
             this.btnAdd10.Click += new System.EventHandler(this.btnAddA_Click);
@@ -750,7 +750,7 @@
             this.btnAdd11.Location = new System.Drawing.Point(243, 3);
             this.btnAdd11.Name = "btnAdd11";
             this.btnAdd11.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd11.TabIndex = 15;
+            this.btnAdd11.TabIndex = 12;
             this.btnAdd11.Text = "button16";
             this.btnAdd11.UseVisualStyleBackColor = true;
             this.btnAdd11.Click += new System.EventHandler(this.btnAddA_Click);
@@ -761,7 +761,7 @@
             this.bnAdd12.Location = new System.Drawing.Point(267, 3);
             this.bnAdd12.Name = "bnAdd12";
             this.bnAdd12.Size = new System.Drawing.Size(18, 20);
-            this.bnAdd12.TabIndex = 14;
+            this.bnAdd12.TabIndex = 13;
             this.bnAdd12.Text = "button15";
             this.bnAdd12.UseVisualStyleBackColor = true;
             this.bnAdd12.Click += new System.EventHandler(this.btnAddA_Click);
@@ -772,7 +772,7 @@
             this.btnAdd13.Location = new System.Drawing.Point(291, 3);
             this.btnAdd13.Name = "btnAdd13";
             this.btnAdd13.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd13.TabIndex = 13;
+            this.btnAdd13.TabIndex = 14;
             this.btnAdd13.Text = "button14";
             this.btnAdd13.UseVisualStyleBackColor = true;
             this.btnAdd13.Click += new System.EventHandler(this.btnAddA_Click);
@@ -783,7 +783,7 @@
             this.btnAdd14.Location = new System.Drawing.Point(3, 29);
             this.btnAdd14.Name = "btnAdd14";
             this.btnAdd14.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd14.TabIndex = 12;
+            this.btnAdd14.TabIndex = 15;
             this.btnAdd14.Text = "button13";
             this.btnAdd14.UseVisualStyleBackColor = true;
             this.btnAdd14.Click += new System.EventHandler(this.btnAddA_Click);
@@ -794,7 +794,7 @@
             this.btnAdd15.Location = new System.Drawing.Point(27, 29);
             this.btnAdd15.Name = "btnAdd15";
             this.btnAdd15.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd15.TabIndex = 11;
+            this.btnAdd15.TabIndex = 16;
             this.btnAdd15.Text = "button12";
             this.btnAdd15.UseVisualStyleBackColor = true;
             this.btnAdd15.Click += new System.EventHandler(this.btnAddA_Click);
@@ -805,7 +805,7 @@
             this.btnAdd16.Location = new System.Drawing.Point(51, 29);
             this.btnAdd16.Name = "btnAdd16";
             this.btnAdd16.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd16.TabIndex = 10;
+            this.btnAdd16.TabIndex = 17;
             this.btnAdd16.Text = "button11";
             this.btnAdd16.UseVisualStyleBackColor = true;
             this.btnAdd16.Click += new System.EventHandler(this.btnAddA_Click);
@@ -816,7 +816,7 @@
             this.btnAdd17.Location = new System.Drawing.Point(75, 29);
             this.btnAdd17.Name = "btnAdd17";
             this.btnAdd17.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd17.TabIndex = 9;
+            this.btnAdd17.TabIndex = 18;
             this.btnAdd17.Text = "button10";
             this.btnAdd17.UseVisualStyleBackColor = true;
             this.btnAdd17.Click += new System.EventHandler(this.btnAddA_Click);
@@ -827,7 +827,7 @@
             this.btnAdd18.Location = new System.Drawing.Point(99, 29);
             this.btnAdd18.Name = "btnAdd18";
             this.btnAdd18.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd18.TabIndex = 8;
+            this.btnAdd18.TabIndex = 19;
             this.btnAdd18.Text = "button9";
             this.btnAdd18.UseVisualStyleBackColor = true;
             this.btnAdd18.Click += new System.EventHandler(this.btnAddA_Click);
@@ -838,7 +838,7 @@
             this.btnAdd19.Location = new System.Drawing.Point(123, 29);
             this.btnAdd19.Name = "btnAdd19";
             this.btnAdd19.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd19.TabIndex = 7;
+            this.btnAdd19.TabIndex = 20;
             this.btnAdd19.Text = "button8";
             this.btnAdd19.UseVisualStyleBackColor = true;
             this.btnAdd19.Click += new System.EventHandler(this.btnAddA_Click);
@@ -849,7 +849,7 @@
             this.btnAdd20.Location = new System.Drawing.Point(147, 29);
             this.btnAdd20.Name = "btnAdd20";
             this.btnAdd20.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd20.TabIndex = 6;
+            this.btnAdd20.TabIndex = 21;
             this.btnAdd20.Text = "button7";
             this.btnAdd20.UseVisualStyleBackColor = true;
             this.btnAdd20.Click += new System.EventHandler(this.btnAddA_Click);
@@ -860,7 +860,7 @@
             this.btnAdd21.Location = new System.Drawing.Point(171, 29);
             this.btnAdd21.Name = "btnAdd21";
             this.btnAdd21.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd21.TabIndex = 5;
+            this.btnAdd21.TabIndex = 22;
             this.btnAdd21.Text = "button6";
             this.btnAdd21.UseVisualStyleBackColor = true;
             this.btnAdd21.Click += new System.EventHandler(this.btnAddA_Click);
@@ -871,7 +871,7 @@
             this.btnAdd22.Location = new System.Drawing.Point(195, 29);
             this.btnAdd22.Name = "btnAdd22";
             this.btnAdd22.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd22.TabIndex = 4;
+            this.btnAdd22.TabIndex = 23;
             this.btnAdd22.Text = "button5";
             this.btnAdd22.UseVisualStyleBackColor = true;
             this.btnAdd22.Click += new System.EventHandler(this.btnAddA_Click);
@@ -882,7 +882,7 @@
             this.btnAdd23.Location = new System.Drawing.Point(219, 29);
             this.btnAdd23.Name = "btnAdd23";
             this.btnAdd23.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd23.TabIndex = 3;
+            this.btnAdd23.TabIndex = 24;
             this.btnAdd23.Text = "button4";
             this.btnAdd23.UseVisualStyleBackColor = true;
             this.btnAdd23.Click += new System.EventHandler(this.btnAddA_Click);
@@ -893,7 +893,7 @@
             this.btnAdd24.Location = new System.Drawing.Point(243, 29);
             this.btnAdd24.Name = "btnAdd24";
             this.btnAdd24.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd24.TabIndex = 2;
+            this.btnAdd24.TabIndex = 25;
             this.btnAdd24.Text = "button3";
             this.btnAdd24.UseVisualStyleBackColor = true;
             this.btnAdd24.Click += new System.EventHandler(this.btnAddA_Click);
@@ -904,7 +904,7 @@
             this.btnAdd25.Location = new System.Drawing.Point(267, 29);
             this.btnAdd25.Name = "btnAdd25";
             this.btnAdd25.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd25.TabIndex = 1;
+            this.btnAdd25.TabIndex = 26;
             this.btnAdd25.Text = "button2";
             this.btnAdd25.UseVisualStyleBackColor = true;
             this.btnAdd25.Click += new System.EventHandler(this.btnAddA_Click);
@@ -915,7 +915,7 @@
             this.btnAdd26.Location = new System.Drawing.Point(291, 29);
             this.btnAdd26.Name = "btnAdd26";
             this.btnAdd26.Size = new System.Drawing.Size(18, 20);
-            this.btnAdd26.TabIndex = 0;
+            this.btnAdd26.TabIndex = 27;
             this.btnAdd26.Text = "btn1";
             this.btnAdd26.UseVisualStyleBackColor = true;
             this.btnAdd26.Click += new System.EventHandler(this.btnAddA_Click);
@@ -1013,7 +1013,7 @@
             0});
             this.nudAddQty.Name = "nudAddQty";
             this.nudAddQty.Size = new System.Drawing.Size(74, 25);
-            this.nudAddQty.TabIndex = 10;
+            this.nudAddQty.TabIndex = 31;
             // 
             // lblAddTyre
             // 
@@ -1056,7 +1056,7 @@
             this.lstAddTyre.Location = new System.Drawing.Point(189, 23);
             this.lstAddTyre.Name = "lstAddTyre";
             this.lstAddTyre.Size = new System.Drawing.Size(140, 89);
-            this.lstAddTyre.TabIndex = 4;
+            this.lstAddTyre.TabIndex = 30;
             this.lstAddTyre.Click += new System.EventHandler(this.lstAddTyre_Click);
             // 
             // lstAddTyreType
@@ -1067,7 +1067,7 @@
             this.lstAddTyreType.Location = new System.Drawing.Point(3, 23);
             this.lstAddTyreType.Name = "lstAddTyreType";
             this.lstAddTyreType.Size = new System.Drawing.Size(180, 89);
-            this.lstAddTyreType.TabIndex = 2;
+            this.lstAddTyreType.TabIndex = 29;
             this.lstAddTyreType.Click += new System.EventHandler(this.lstAddTyreType_Click);
             // 
             // pnlAddOrder1
@@ -1417,7 +1417,7 @@
             this.btnDisplayDelete.Location = new System.Drawing.Point(255, 2);
             this.btnDisplayDelete.Name = "btnDisplayDelete";
             this.btnDisplayDelete.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayDelete.TabIndex = 8;
+            this.btnDisplayDelete.TabIndex = 2;
             this.btnDisplayDelete.Text = "Delete Order";
             this.btnDisplayDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayDelete.UseVisualStyleBackColor = true;
@@ -1458,7 +1458,7 @@
             this.btnDisplayEdit.Location = new System.Drawing.Point(129, 2);
             this.btnDisplayEdit.Name = "btnDisplayEdit";
             this.btnDisplayEdit.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayEdit.TabIndex = 2;
+            this.btnDisplayEdit.TabIndex = 1;
             this.btnDisplayEdit.Text = "Edit an Order";
             this.btnDisplayEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayEdit.UseVisualStyleBackColor = true;
@@ -1477,7 +1477,7 @@
             this.btnDisplayAdd.Location = new System.Drawing.Point(3, 2);
             this.btnDisplayAdd.Name = "btnDisplayAdd";
             this.btnDisplayAdd.Size = new System.Drawing.Size(120, 26);
-            this.btnDisplayAdd.TabIndex = 1;
+            this.btnDisplayAdd.TabIndex = 0;
             this.btnDisplayAdd.Text = "Add an Order";
             this.btnDisplayAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisplayAdd.UseVisualStyleBackColor = false;
@@ -1768,7 +1768,7 @@
             this.rdoEditTrade.Location = new System.Drawing.Point(3, -1);
             this.rdoEditTrade.Name = "rdoEditTrade";
             this.rdoEditTrade.Size = new System.Drawing.Size(62, 21);
-            this.rdoEditTrade.TabIndex = 12;
+            this.rdoEditTrade.TabIndex = 36;
             this.rdoEditTrade.TabStop = true;
             this.rdoEditTrade.Text = "Trade";
             this.rdoEditTrade.UseVisualStyleBackColor = true;
@@ -1781,7 +1781,7 @@
             this.rdoEditGeneral.Location = new System.Drawing.Point(70, -1);
             this.rdoEditGeneral.Name = "rdoEditGeneral";
             this.rdoEditGeneral.Size = new System.Drawing.Size(74, 21);
-            this.rdoEditGeneral.TabIndex = 13;
+            this.rdoEditGeneral.TabIndex = 37;
             this.rdoEditGeneral.TabStop = true;
             this.rdoEditGeneral.Text = "General";
             this.rdoEditGeneral.UseVisualStyleBackColor = true;
@@ -1845,7 +1845,7 @@
             0});
             this.nudEditQty.Name = "nudEditQty";
             this.nudEditQty.Size = new System.Drawing.Size(74, 25);
-            this.nudEditQty.TabIndex = 22;
+            this.nudEditQty.TabIndex = 73;
             // 
             // lblEditTyre
             // 
@@ -1888,7 +1888,7 @@
             this.lstEditTyreType.Location = new System.Drawing.Point(3, 23);
             this.lstEditTyreType.Name = "lstEditTyreType";
             this.lstEditTyreType.Size = new System.Drawing.Size(188, 72);
-            this.lstEditTyreType.TabIndex = 21;
+            this.lstEditTyreType.TabIndex = 71;
             this.lstEditTyreType.Click += new System.EventHandler(this.lstEditTyreType_Click);
             // 
             // lstEditTyre
@@ -1899,7 +1899,7 @@
             this.lstEditTyre.Location = new System.Drawing.Point(3, 118);
             this.lstEditTyre.Name = "lstEditTyre";
             this.lstEditTyre.Size = new System.Drawing.Size(188, 72);
-            this.lstEditTyre.TabIndex = 21;
+            this.lstEditTyre.TabIndex = 72;
             this.lstEditTyre.Click += new System.EventHandler(this.lstEditTyre_Click);
             // 
             // pnlEditCust3
@@ -1931,7 +1931,7 @@
             this.lstEditCust.Location = new System.Drawing.Point(3, 23);
             this.lstEditCust.Name = "lstEditCust";
             this.lstEditCust.Size = new System.Drawing.Size(306, 89);
-            this.lstEditCust.TabIndex = 1;
+            this.lstEditCust.TabIndex = 64;
             this.lstEditCust.Click += new System.EventHandler(this.lstEditCust_Click);
             // 
             // pnlEditCust2
@@ -1995,7 +1995,7 @@
             this.btnEdit1.Location = new System.Drawing.Point(3, 3);
             this.btnEdit1.Name = "btnEdit1";
             this.btnEdit1.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit1.TabIndex = 25;
+            this.btnEdit1.TabIndex = 38;
             this.btnEdit1.Text = "button26";
             this.btnEdit1.UseVisualStyleBackColor = true;
             this.btnEdit1.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2006,7 +2006,7 @@
             this.btnEdit2.Location = new System.Drawing.Point(27, 3);
             this.btnEdit2.Name = "btnEdit2";
             this.btnEdit2.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit2.TabIndex = 24;
+            this.btnEdit2.TabIndex = 39;
             this.btnEdit2.Text = "button25";
             this.btnEdit2.UseVisualStyleBackColor = true;
             this.btnEdit2.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2017,7 +2017,7 @@
             this.btnEdit3.Location = new System.Drawing.Point(51, 3);
             this.btnEdit3.Name = "btnEdit3";
             this.btnEdit3.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit3.TabIndex = 23;
+            this.btnEdit3.TabIndex = 40;
             this.btnEdit3.Text = "button24";
             this.btnEdit3.UseVisualStyleBackColor = true;
             this.btnEdit3.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2028,7 +2028,7 @@
             this.btnEdit4.Location = new System.Drawing.Point(75, 3);
             this.btnEdit4.Name = "btnEdit4";
             this.btnEdit4.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit4.TabIndex = 22;
+            this.btnEdit4.TabIndex = 41;
             this.btnEdit4.Text = "button23";
             this.btnEdit4.UseVisualStyleBackColor = true;
             this.btnEdit4.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2039,7 +2039,7 @@
             this.btnEdit5.Location = new System.Drawing.Point(99, 3);
             this.btnEdit5.Name = "btnEdit5";
             this.btnEdit5.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit5.TabIndex = 21;
+            this.btnEdit5.TabIndex = 42;
             this.btnEdit5.Text = "button22";
             this.btnEdit5.UseVisualStyleBackColor = true;
             this.btnEdit5.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2050,7 +2050,7 @@
             this.btnEdit6.Location = new System.Drawing.Point(123, 3);
             this.btnEdit6.Name = "btnEdit6";
             this.btnEdit6.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit6.TabIndex = 20;
+            this.btnEdit6.TabIndex = 43;
             this.btnEdit6.Text = "button21";
             this.btnEdit6.UseVisualStyleBackColor = true;
             this.btnEdit6.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2061,7 +2061,7 @@
             this.btnEdit7.Location = new System.Drawing.Point(147, 3);
             this.btnEdit7.Name = "btnEdit7";
             this.btnEdit7.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit7.TabIndex = 19;
+            this.btnEdit7.TabIndex = 44;
             this.btnEdit7.Text = "button20";
             this.btnEdit7.UseVisualStyleBackColor = true;
             this.btnEdit7.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2072,7 +2072,7 @@
             this.btnEdit8.Location = new System.Drawing.Point(171, 3);
             this.btnEdit8.Name = "btnEdit8";
             this.btnEdit8.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit8.TabIndex = 18;
+            this.btnEdit8.TabIndex = 45;
             this.btnEdit8.Text = "button19";
             this.btnEdit8.UseVisualStyleBackColor = true;
             this.btnEdit8.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2083,7 +2083,7 @@
             this.btnEdit9.Location = new System.Drawing.Point(195, 3);
             this.btnEdit9.Name = "btnEdit9";
             this.btnEdit9.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit9.TabIndex = 17;
+            this.btnEdit9.TabIndex = 46;
             this.btnEdit9.Text = "button18";
             this.btnEdit9.UseVisualStyleBackColor = true;
             this.btnEdit9.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2094,7 +2094,7 @@
             this.btnEdit10.Location = new System.Drawing.Point(219, 3);
             this.btnEdit10.Name = "btnEdit10";
             this.btnEdit10.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit10.TabIndex = 16;
+            this.btnEdit10.TabIndex = 47;
             this.btnEdit10.Text = "button17";
             this.btnEdit10.UseVisualStyleBackColor = true;
             this.btnEdit10.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2105,7 +2105,7 @@
             this.btnEdit11.Location = new System.Drawing.Point(243, 3);
             this.btnEdit11.Name = "btnEdit11";
             this.btnEdit11.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit11.TabIndex = 15;
+            this.btnEdit11.TabIndex = 48;
             this.btnEdit11.Text = "button16";
             this.btnEdit11.UseVisualStyleBackColor = true;
             this.btnEdit11.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2116,7 +2116,7 @@
             this.btnEdit12.Location = new System.Drawing.Point(267, 3);
             this.btnEdit12.Name = "btnEdit12";
             this.btnEdit12.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit12.TabIndex = 14;
+            this.btnEdit12.TabIndex = 49;
             this.btnEdit12.Text = "button15";
             this.btnEdit12.UseVisualStyleBackColor = true;
             this.btnEdit12.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2127,7 +2127,7 @@
             this.btnEdit13.Location = new System.Drawing.Point(291, 3);
             this.btnEdit13.Name = "btnEdit13";
             this.btnEdit13.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit13.TabIndex = 13;
+            this.btnEdit13.TabIndex = 50;
             this.btnEdit13.Text = "button14";
             this.btnEdit13.UseVisualStyleBackColor = true;
             this.btnEdit13.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2138,7 +2138,7 @@
             this.btnEdit14.Location = new System.Drawing.Point(3, 29);
             this.btnEdit14.Name = "btnEdit14";
             this.btnEdit14.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit14.TabIndex = 12;
+            this.btnEdit14.TabIndex = 51;
             this.btnEdit14.Text = "button13";
             this.btnEdit14.UseVisualStyleBackColor = true;
             this.btnEdit14.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2149,7 +2149,7 @@
             this.btnEdit15.Location = new System.Drawing.Point(27, 29);
             this.btnEdit15.Name = "btnEdit15";
             this.btnEdit15.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit15.TabIndex = 11;
+            this.btnEdit15.TabIndex = 52;
             this.btnEdit15.Text = "button12";
             this.btnEdit15.UseVisualStyleBackColor = true;
             this.btnEdit15.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2160,7 +2160,7 @@
             this.btnEdit16.Location = new System.Drawing.Point(51, 29);
             this.btnEdit16.Name = "btnEdit16";
             this.btnEdit16.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit16.TabIndex = 10;
+            this.btnEdit16.TabIndex = 53;
             this.btnEdit16.Text = "button11";
             this.btnEdit16.UseVisualStyleBackColor = true;
             this.btnEdit16.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2171,7 +2171,7 @@
             this.btnEdit17.Location = new System.Drawing.Point(75, 29);
             this.btnEdit17.Name = "btnEdit17";
             this.btnEdit17.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit17.TabIndex = 9;
+            this.btnEdit17.TabIndex = 54;
             this.btnEdit17.Text = "button10";
             this.btnEdit17.UseVisualStyleBackColor = true;
             this.btnEdit17.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2182,7 +2182,7 @@
             this.btnEdit18.Location = new System.Drawing.Point(99, 29);
             this.btnEdit18.Name = "btnEdit18";
             this.btnEdit18.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit18.TabIndex = 8;
+            this.btnEdit18.TabIndex = 55;
             this.btnEdit18.Text = "button9";
             this.btnEdit18.UseVisualStyleBackColor = true;
             this.btnEdit18.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2193,7 +2193,7 @@
             this.btnEdit19.Location = new System.Drawing.Point(123, 29);
             this.btnEdit19.Name = "btnEdit19";
             this.btnEdit19.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit19.TabIndex = 7;
+            this.btnEdit19.TabIndex = 56;
             this.btnEdit19.Text = "button8";
             this.btnEdit19.UseVisualStyleBackColor = true;
             this.btnEdit19.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2204,7 +2204,7 @@
             this.btnEdit20.Location = new System.Drawing.Point(147, 29);
             this.btnEdit20.Name = "btnEdit20";
             this.btnEdit20.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit20.TabIndex = 6;
+            this.btnEdit20.TabIndex = 57;
             this.btnEdit20.Text = "button7";
             this.btnEdit20.UseVisualStyleBackColor = true;
             this.btnEdit20.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2215,7 +2215,7 @@
             this.btnEdit21.Location = new System.Drawing.Point(171, 29);
             this.btnEdit21.Name = "btnEdit21";
             this.btnEdit21.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit21.TabIndex = 5;
+            this.btnEdit21.TabIndex = 58;
             this.btnEdit21.Text = "button6";
             this.btnEdit21.UseVisualStyleBackColor = true;
             this.btnEdit21.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2226,7 +2226,7 @@
             this.btnEdit22.Location = new System.Drawing.Point(195, 29);
             this.btnEdit22.Name = "btnEdit22";
             this.btnEdit22.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit22.TabIndex = 4;
+            this.btnEdit22.TabIndex = 59;
             this.btnEdit22.Text = "button5";
             this.btnEdit22.UseVisualStyleBackColor = true;
             this.btnEdit22.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2237,7 +2237,7 @@
             this.btnEdit23.Location = new System.Drawing.Point(219, 29);
             this.btnEdit23.Name = "btnEdit23";
             this.btnEdit23.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit23.TabIndex = 3;
+            this.btnEdit23.TabIndex = 60;
             this.btnEdit23.Text = "button4";
             this.btnEdit23.UseVisualStyleBackColor = true;
             this.btnEdit23.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2248,7 +2248,7 @@
             this.btnEdit24.Location = new System.Drawing.Point(243, 29);
             this.btnEdit24.Name = "btnEdit24";
             this.btnEdit24.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit24.TabIndex = 2;
+            this.btnEdit24.TabIndex = 61;
             this.btnEdit24.Text = "button3";
             this.btnEdit24.UseVisualStyleBackColor = true;
             this.btnEdit24.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2259,7 +2259,7 @@
             this.btnEdit25.Location = new System.Drawing.Point(267, 29);
             this.btnEdit25.Name = "btnEdit25";
             this.btnEdit25.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit25.TabIndex = 1;
+            this.btnEdit25.TabIndex = 62;
             this.btnEdit25.Text = "button2";
             this.btnEdit25.UseVisualStyleBackColor = true;
             this.btnEdit25.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2270,7 +2270,7 @@
             this.btnEdit26.Location = new System.Drawing.Point(291, 29);
             this.btnEdit26.Name = "btnEdit26";
             this.btnEdit26.Size = new System.Drawing.Size(18, 20);
-            this.btnEdit26.TabIndex = 0;
+            this.btnEdit26.TabIndex = 63;
             this.btnEdit26.Text = "btn1";
             this.btnEdit26.UseVisualStyleBackColor = true;
             this.btnEdit26.Click += new System.EventHandler(this.btnEditA_Click);
@@ -2416,7 +2416,7 @@
             this.lstEditOrder.MultiColumn = true;
             this.lstEditOrder.Name = "lstEditOrder";
             this.lstEditOrder.Size = new System.Drawing.Size(240, 106);
-            this.lstEditOrder.TabIndex = 16;
+            this.lstEditOrder.TabIndex = 65;
             this.lstEditOrder.Click += new System.EventHandler(this.lstEditOrder_Click);
             // 
             // pnlEditOrder0
@@ -2479,7 +2479,7 @@
             this.btnEditAddEditCancel.Location = new System.Drawing.Point(507, 2);
             this.btnEditAddEditCancel.Name = "btnEditAddEditCancel";
             this.btnEditAddEditCancel.Size = new System.Drawing.Size(120, 25);
-            this.btnEditAddEditCancel.TabIndex = 11;
+            this.btnEditAddEditCancel.TabIndex = 70;
             this.btnEditAddEditCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditAddEditCancel.UseVisualStyleBackColor = false;
             this.btnEditAddEditCancel.Click += new System.EventHandler(this.btnEditAddEditCancel_Click);
@@ -2508,7 +2508,7 @@
             this.btnEditCancel.Location = new System.Drawing.Point(381, 2);
             this.btnEditCancel.Name = "btnEditCancel";
             this.btnEditCancel.Size = new System.Drawing.Size(120, 25);
-            this.btnEditCancel.TabIndex = 9;
+            this.btnEditCancel.TabIndex = 69;
             this.btnEditCancel.Text = "Stop Editing";
             this.btnEditCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditCancel.UseVisualStyleBackColor = true;
@@ -2549,7 +2549,7 @@
             this.btnEditEdit.Location = new System.Drawing.Point(255, 2);
             this.btnEditEdit.Name = "btnEditEdit";
             this.btnEditEdit.Size = new System.Drawing.Size(120, 25);
-            this.btnEditEdit.TabIndex = 3;
+            this.btnEditEdit.TabIndex = 68;
             this.btnEditEdit.Text = "Edit Tyre Qty";
             this.btnEditEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditEdit.UseVisualStyleBackColor = true;
@@ -2579,7 +2579,7 @@
             this.btnEditDelete.Location = new System.Drawing.Point(129, 2);
             this.btnEditDelete.Name = "btnEditDelete";
             this.btnEditDelete.Size = new System.Drawing.Size(120, 25);
-            this.btnEditDelete.TabIndex = 2;
+            this.btnEditDelete.TabIndex = 67;
             this.btnEditDelete.Text = "Remove Tyre";
             this.btnEditDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditDelete.UseVisualStyleBackColor = true;
@@ -2598,7 +2598,7 @@
             this.btnEditAdd.Location = new System.Drawing.Point(3, 2);
             this.btnEditAdd.Name = "btnEditAdd";
             this.btnEditAdd.Size = new System.Drawing.Size(120, 25);
-            this.btnEditAdd.TabIndex = 1;
+            this.btnEditAdd.TabIndex = 66;
             this.btnEditAdd.Text = "Add Tyre";
             this.btnEditAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditAdd.UseVisualStyleBackColor = false;
